@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saroj Japrel | Thoughts and Writings</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+
+<script>
+  function toggleAboutBox() {
+    const box = document.getElementById("aboutBox");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+  }
+</script>
+
+<body>
+
+
+  <!-- Floating About Me Button and Box -->
+<div class="about-float-container">
+  <button class="about-toggle-btn" onclick="toggleAboutBox()">About Me</button>
+
+  <div class="about-float-box" id="aboutBox">
+    <p>Hey, I'm Saroj Japrel. I'm a BSc student from a science background. I love reading, exploring new ideas, and learning different things every day. Just a curious learner trying to grow and understand something new.</p>
+  </div>
+</div>
+
+  <!-- Scroll progress bar -->
+  <div id="progress-bar"></div>
+
+  <header>
+    <h1>Saroj Japrel</h1>
+    <p id="typed-text" class="typed-text"></p>
+
+    <button id="darkModeToggle" title="Toggle Dark Mode">
+      <i class="fa-solid fa-moon"></i> Dark Mode
+    </button>
+  </header>
+
+  <nav class="navbar" role="tablist" aria-label="Main Navigation">
+    <ul>
+      <li>
+        <button
+          class="tab-button active"
+          data-target="story"
+          role="tab"
+          aria-selected="true"
+          tabindex="0"
+          id="tab-story"
+          aria-controls="story"
+        >
+          Story
+        </button>
+      </li>
+      <li>
+        <button
+          class="tab-button"
+          data-target="philosophy"
+          role="tab"
+          aria-selected="false"
+          tabindex="-1"
+          id="tab-philosophy"
+          aria-controls="philosophy"
+        >
+          Philosophy & Thoughts
+        </button>
+      </li>
+      <li>
+        <button
+          class="tab-button"
+          data-target="poems"
+          role="tab"
+          aria-selected="false"
+          tabindex="-1"
+          id="tab-poems"
+          aria-controls="poems"
+        >
+          My Poems
+        </button>
+      </li>
+      <li>
+        <button
+          class="tab-button"
+          data-target="reading"
+          role="tab"
+          aria-selected="false"
+          tabindex="-1"
+          id="tab-reading"
+          aria-controls="reading"
+        >
+          What I Read
+        </button>
+      </li>
+      <li>
+        
+      
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section
+      id="story"
+      class="tab-content active fade-in"
+      tabindex="0"
+      role="tabpanel"
+      aria-labelledby="tab-story"
+    >
+      <h2>Story</h2> 
+
+    <h3> 
+      <nav>
+
+  <a href="story.html">About Story</a>
+
+</nav></h3>
+    </section>
+
+    <section
+      id="philosophy"
+      class="tab-content fade-in"
+      tabindex="0"
+      role="tabpanel"
+      aria-labelledby="tab-philosophy"
+    >
+      <h2> Life | Philosophy | Thoughts</h2>
+      
+    </section>
+
+    <section
+      id="poems"
+      class="tab-content fade-in"
+      tabindex="0"
+      role="tabpanel"
+      aria-labelledby="tab-poems"
+    >
+      <h2>My Poems</h2>
+
+      <div class="poem" tabindex="0">
+        <h3>  <a href="poem2.html" class="poem-link" target="_blank" rel="noopener noreferrer">तिम्रो खुसी पनि अचम्मको छ</a></h3>
+        
+
+      <!-- Poem Section link on your main page -->
+
+  
+  <h2><a href="poem1.html" class="poem-link" target="_blank" rel="noopener noreferrer">यात्रा गरौँला</a></h2>
+</section>
+
+
+      
+
+    <section
+      id="reading"
+      class="tab-content fade-in"
+      tabindex="0"
+      role="tabpanel"
+      aria-labelledby="tab-reading"
+    >
+      <h2>What I Read</h2>
+      
+
+  <a href="book-is-like-travelling.html">Reading Book Is Like Travelling</a>
+</nav></h3>
+    </section>
+
+    
+  </main>
+
+  <button id="backToTop" title="Back to top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <footer>
+    <p>
+      &copy; 2025 Saroj Japrel | 
+      <a href="mailto:japrelsaroj07@gmail.com"
+        ><i class="fa-solid fa-envelope"></i> japrelsaroj07@gmail.com</a
+      >
+    </p>
+  </footer>
+
+  <script>
+    // Tabs variables
+    const buttons = document.querySelectorAll(".tab-button");
+    const tabs = document.querySelectorAll(".tab-content");
+
+    // Function to switch tab
+    function openTab(tabId) {
+      tabs.forEach((tab) => {
+        if (tab.id === tabId) {
+          tab.classList.add("active");
+          tab.setAttribute("tabindex", "0");
+          tab.focus();
+          tab.classList.add("fade-in");
+        } else {
+          tab.classList.remove("active");
+          tab.setAttribute("tabindex", "-1");
+          tab.classList.remove("fade-in");
+        }
+      });
+
+      buttons.forEach((btn) => {
+        if (btn.dataset.target === tabId) {
+          btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
+          btn.setAttribute("tabindex", "0");
+          btn.focus();
+        } else {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-selected", "false");
+          btn.setAttribute("tabindex", "-1");
+        }
+      });
+
+      // Smooth scroll to the content
+      document.getElementById(tabId).scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Click event on buttons
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        openTab(btn.dataset.target);
+      });
+
+      // Keyboard navigation for tabs (left/right arrows)
+      btn.addEventListener("keydown", (e) => {
+        const currentIndex = Array.from(buttons).indexOf(e.target);
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          const nextIndex = (currentIndex + 1) % buttons.length;
+          buttons[nextIndex].focus();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          const prevIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+          buttons[prevIndex].focus();
+        }
+      });
+    });
+
+    // Scroll progress bar
+    const progressBar = document.getElementById("progress-bar");
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (scrollTop / docHeight) * 100;
+      progressBar.style.width = scrolled + "%";
+
+      // Back to Top button visibility
+      const backToTop = document.getElementById("backToTop");
+      if (scrollTop > 300) {
+        backToTop.style.display = "block";
+      } else {
+        backToTop.style.display = "none";
+      }
+
+      // Highlight menu on scroll
+      let currentSection = "story";
+      tabs.forEach((section) => {
+        const sectionTop = section.offsetTop - 80;
+        if (scrollTop >= sectionTop) {
+          currentSection = section.id;
+        }
+      });
+      buttons.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.target === currentSection);
+        btn.setAttribute("aria-selected", btn.dataset.target === currentSection ? "true" : "false");
+        btn.setAttribute("tabindex", btn.dataset.target === currentSection ? "0" : "-1");
+      });
+    });
+
+    // Back to top button
+    document.getElementById("backToTop").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById("darkModeToggle");
+    darkToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      // Change icon and text accordingly
+      if (document.body.classList.contains("dark-mode")) {
+        darkToggle.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
+      } else {
+        darkToggle.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
+      }
+    });
+
+    // Typed text effect
+    const typedText = document.getElementById("typed-text");
+    const textArray = [
+      "Explorer ",
+      "Explorer",
+      "Explorer"
+    ];
+    let arrayIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 100;
+    const deletingSpeed = 50;
+    const delayBetween = 1500;
+
+    function type() {
+      const currentText = textArray[arrayIndex];
+      if (!isDeleting) {
+        typedText.textContent = currentText.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentText.length) {
+          isDeleting = true;
+          setTimeout(type, delayBetween);
+          return;
+        }
+      } else {
+        typedText.textContent = currentText.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          arrayIndex = (arrayIndex + 1) % textArray.length;
+        }
+      }
+      setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+    }
+
+    type();
+  </script>
+
+
+
+<!-- Small Subscribe Section -->
+<footer class="small-subscribe">
+  <form>
+    <label for="subscribe-email">Subscribe for updates:</label>
+    <input type="email" id="subscribe-email" placeholder="Enter email" required />
+    <button type="submit">Subscribe</button>
+  </form>
+</footer>
+
+</body>
+</html>
