@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ne">
 <head>
@@ -6,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>यात्रा गरौँला - Poem</title>
   <style>
-    body {
+    * {
       margin: 0;
-      padding: 40px 20px;
-      font-family: "Noto Sans Devanagari", sans-serif;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      line-height: 1.6;
+      padding: 0;
       box-sizing: border-box;
-      position: relative;
-      color: #f0e8ff;
-      overflow: hidden;
     }
 
-    /* Background image: couple traveling */
+    body {
+      font-family: "Noto Sans Devanagari", sans-serif;
+      color: #f0e8ff;
+      line-height: 1.6;
+      background-color: #000;
+      position: relative;
+    }
+
+    /* Background image with dark overlay */
     body::before {
       content: "";
       position: fixed;
@@ -36,23 +33,31 @@
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: -1;
+    }
+
+    main {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
     }
 
     .poem {
       background: rgba(0, 0, 0, 0.6);
       padding: 30px 40px;
-      max-width: 700px;
+      max-width: 800px;
       border-radius: 15px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-      outline: none;
+      text-align: center;
     }
 
     .poem h3 {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       margin-bottom: 25px;
-      font-weight: 700;
+      font-weight: bold;
       color: #ffd966;
       text-shadow: 1px 1px 6px #000000cc;
     }
@@ -64,16 +69,19 @@
       text-shadow: 0 1px 3px #000000cc;
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 10px;
+    @media (max-width: 768px) {
+      main {
+        padding: 40px 10px;
       }
+
       .poem {
-        padding: 20px 25px;
+        padding: 20px;
       }
+
       .poem h3 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
+
       .poem p {
         font-size: 1rem;
       }
@@ -81,39 +89,41 @@
   </style>
 </head>
 <body>
-  <section class="poem" tabindex="0" aria-label="Poem: यात्रा गरौँला">
-    <h3>यात्रा गरौँला</h3>
-    <p>हामी सँगै यात्रा गरौँला।<br>
-      उकाली चढौला,<br>
-      ओराली झडौँला।<br>
-      यसरी हामी यो जीवनको<br>
-      लामो यात्रा गरौला ।।</p>
+  <main>
+    <section class="poem" tabindex="0" aria-label="Poem: यात्रा गरौँला">
+      <h3>यात्रा गरौँला</h3>
+      <p>हामी सँगै यात्रा गरौँला।<br>
+        उकाली चढौला,<br>
+        ओराली झडौँला।<br>
+        यसरी हामी यो जीवनको<br>
+        लामो यात्रा गरौला ।।</p>
 
-    <p>हामीले यात्रा गर्दा,<br>
-      कयौँ बाटाहरूमा कैयौं<br>
-      साँघुरा ठाउँहरू आउनेछन्,<br>
-      जहाँ हामीले एकअर्काको<br>
-      हात समाएर हिँड्न मिल्ने छैन,<br>
-      तर पनि हामी हात समाएर<br>
-      सँगै हिँड्न नसके पनि<br>
-      यो जीवनको यात्रामा सधैं सँगै हुनेछौँ।</p>
+      <p>हामीले यात्रा गर्दा,<br>
+        कयौँ बाटाहरूमा कैयौं<br>
+        साँघुरा ठाउँहरू आउनेछन्,<br>
+        जहाँ हामीले एकअर्काको<br>
+        हात समाएर हिँड्न मिल्ने छैन,<br>
+        तर पनि हामी हात समाएर<br>
+        सँगै हिँड्न नसके पनि<br>
+        यो जीवनको यात्रामा सधैं सँगै हुनेछौँ।</p>
 
-    <p>हामीले यो यात्रा गरिरहँदा,<br>
-      यो यात्राको क्रममा अघि बढिरहँदा,<br>
-      हामी बेसरी थाक्छौँ होला।<br>
-      तर हामी थाके पनि,<br>
-      एकअर्काको लागि<br>
-      ती सबै थकानहरू मेट्ने चौतारी बन्नेछ<br>
-      र फेरि यात्रा गर्नेछौँ।।</p>
+      <p>हामीले यो यात्रा गरिरहँदा,<br>
+        यो यात्राको क्रममा अघि बढिरहँदा,<br>
+        हामी बेसरी थाक्छौँ होला।<br>
+        तर हामी थाके पनि,<br>
+        एकअर्काको लागि<br>
+        ती सबै थकानहरू मेट्ने चौतारी बन्नेछ<br>
+        र फेरि यात्रा गर्नेछौँ।।</p>
 
-    <p>यसरी हामी यो जीवनको यात्रामा,<br>
-      एकअर्काको चौतारी बन्दै,<br>
-      भारीहरू उठाउन मिल्ने टेको बन्दै,<br>
-      यात्रामा तिर्खा लागेका प्यासहरू<br>
-      मेटाउने पानी बन्दै,<br>
-      यात्राको क्रममा प्रत्येक दृश्य<br>
-      हेर्न मिल्ने आँखाको नानी बन्दै,<br>
-      यसरी तिमी र म सँगै जीवनको यात्रा गरौँला।</p>
-  </section>
+      <p>यसरी हामी यो जीवनको यात्रामा,<br>
+        एकअर्काको चौतारी बन्दै,<br>
+        भारीहरू उठाउन मिल्ने टेको बन्दै,<br>
+        यात्रामा तिर्खा लागेका प्यासहरू<br>
+        मेटाउने पानी बन्दै,<br>
+        यात्राको क्रममा प्रत्येक दृश्य<br>
+        हेर्न मिल्ने आँखाको नानी बन्दै,<br>
+        यसरी तिमी र म सँगै जीवनको यात्रा गरौँला।</p>
+    </section>
+  </main>
 </body>
 </html>
