@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Experience With Saroj | Thoughts and Writings</title>
+
+  <!-- Link External CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" />
+<a href="aboutme.html">👤 About Me</a>
+
+  <!-- Google Fonts for emotional typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Experience With Saroj</h1>
+    <p class="typed-text" id="typed-text"></p>
+    <button id="darkModeToggle"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><button class="tab-button active" data-target="story">Story</button></li>
+      <li><button class="tab-button" data-target="philosophy">Philosophy & Thoughts</button></li>
+      <li><button class="tab-button" data-target="poems">My Poems</button></li>
+      <li><button class="tab-button" data-target="reading">What I Read</button></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section id="story" class="tab-content active fade-in">
+      <h2>Story</h2>
+      <a href="story.html">About Story</a>
+    </section>
+
+    <section id="philosophy" class="tab-content fade-in">
+      <h2>Life | Philosophy | Thoughts</h2>
+    </section>
+
+    <section id="poems" class="tab-content fade-in">
+      <h2>My Poems</h2>
+      <h3><a href="poem2.html" target="_blank">तिम्रो खुसी पनि अचम्मको छ</a></h3>
+      <h3><a href="poem1.html" target="_blank">यात्रा गरौँला</a></h3>
+    </section>
+
+    <section id="reading" class="tab-content fade-in">
+      <h2>What I Read</h2>
+      <a href="book-is-like-travelling.html">Reading Book Is Like Travelling</a>
+    </section>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="backToTop" title="Back to Top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Saroj Japrel |
+    <a href="mailto:japrelsaroj07@gmail.com"><i class="fa-solid fa-envelope"></i> japrelsaroj07@gmail.com</a>
+  </footer>
+
+  <!-- Subscribe Form -->
+  <footer class="small-subscribe">
+    <form>
+      <label for="subscribe-email">Subscribe for updates:</label>
+      <input type="email" id="subscribe-email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const tabs = document.querySelectorAll(".tab-content");
+
+    function openTab(tabId) {
+      tabs.forEach(tab => tab.classList.toggle("active", tab.id === tabId));
+      buttons.forEach(btn => {
+        if (btn.dataset.target) {
+          btn.classList.toggle("active", btn.dataset.target === tabId);
+        }
+      });
+    }
+
+    buttons.forEach(btn => {
+      if (btn.dataset.target) {
+        btn.addEventListener("click", () => openTab(btn.dataset.target));
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      document.getElementById("backToTop").style.display = scrollTop > 300 ? "block" : "none";
+    });
+
+    document.getElementById("backToTop").addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    const darkToggle = document.getElementById("darkModeToggle");
+    darkToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      darkToggle.innerHTML = document.body.classList.contains("dark-mode")
+        ? '<i class="fa-solid fa-sun"></i> Light Mode'
+        : '<i class="fa-solid fa-moon"></i> Dark Mode';
+    });
+
+    // Typing effect
+    const typedText = document.getElementById("typed-text");
+    const textArray = ["Explorer", "Explorer", "Explorer"];
+    let arrayIndex = 0, charIndex = 0, isDeleting = false;
+    const typingSpeed = 100, deletingSpeed = 50, delayBetween = 1500;
+
+    function type() {
+      const currentText = textArray[arrayIndex];
+      if (!isDeleting) {
+        typedText.textContent = currentText.slice(0, ++charIndex);
+        if (charIndex === currentText.length) {
+          isDeleting = true;
+          setTimeout(type, delayBetween);
+          return;
+        }
+      } else {
+        typedText.textContent = currentText.slice(0, --charIndex);
+        if (charIndex === 0) {
+          isDeleting = false;
+          arrayIndex = (arrayIndex + 1) % textArray.length;
+        }
+      }
+      setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
+    }
+
+    type();
+  </script>
+</body>
+</html>
