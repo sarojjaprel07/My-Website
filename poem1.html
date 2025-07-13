@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ne">
 <head>
@@ -6,77 +5,126 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>यात्रा गरौँला - Poem</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Playfair+Display:wght@700&display=swap');
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       padding: 40px 20px;
-      font-family: "Noto Sans Devanagari", sans-serif;
+      font-family: 'Noto Sans Devanagari', sans-serif;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      line-height: 1.6;
-      box-sizing: border-box;
-      position: relative;
-      color: #f0e8ff;
+      background: linear-gradient(135deg, #6b5876, #302b40);
+      color: #e9d6ff;
       overflow: hidden;
+      text-align: center;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Background image: couple traveling */
+    /* Background image softly blended with gradient */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-      filter: brightness(0.25);
+      filter: brightness(0.28) saturate(0.8) contrast(0.85);
       z-index: -2;
+      transition: filter 0.5s ease;
     }
-
     body::after {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(30, 25, 42, 0.75);
       z-index: -1;
+      transition: background 0.5s ease;
     }
 
+    /* Poem container */
     .poem {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px 40px;
-      max-width: 700px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-      outline: none;
+      background: rgba(44, 34, 56, 0.85);
+      padding: 40px 50px;
+      max-width: 720px;
+      border-radius: 25px;
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px rgba(255, 255, 255, 0.05);
+      user-select: text;
+      text-shadow: 1px 2px 5px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+    .poem:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 12px 45px rgba(0, 0, 0, 0.9),
+        inset 0 0 35px rgba(255, 255, 255, 0.1);
     }
 
+    /* Title */
     .poem h3 {
-      font-size: 2.2rem;
-      margin-bottom: 25px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
       font-weight: 700;
       color: #ffd966;
-      text-shadow: 1px 1px 6px #000000cc;
+      text-shadow: 2px 2px 8px #b3944c;
+      letter-spacing: 0.06em;
+      user-select: text;
     }
 
+    /* Paragraph styling */
     .poem p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #e6d9ff;
-      text-shadow: 0 1px 3px #000000cc;
+      font-size: 1.3rem;
+      margin-bottom: 26px;
+      color: #d8c6ff;
+      user-select: text;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
     }
 
-    @media (max-width: 600px) {
+    .poem p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Subtle highlight on hover for paragraphs */
+    .poem p:hover {
+      color: #fff8c4;
+      cursor: default;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 650px) {
       body {
-        padding: 20px 10px;
+        padding: 25px 15px;
       }
       .poem {
-        padding: 20px 25px;
+        padding: 30px 25px;
+        max-width: 100%;
       }
       .poem h3 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+        margin-bottom: 22px;
       }
       .poem p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        line-height: 1.6;
       }
+    }
+
+    /* Accessibility: Focus outline for keyboard users */
+    .poem:focus {
+      outline: 3px solid #ffd966;
+      outline-offset: 10px;
+      box-shadow: 0 0 15px 4px #ffd966aa;
     }
   </style>
 </head>
