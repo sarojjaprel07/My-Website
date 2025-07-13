@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>यात्रा गरौँला - Poem</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&family=Playfair+Display:wght@700&display=swap');
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6b5876, #302b40);
+      color: #e9d6ff;
+      text-align: center;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      filter: brightness(0.28) saturate(0.8) contrast(0.85);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(30, 25, 42, 0.75);
+      z-index: -1;
+    }
+
+    .poem {
+      background: rgba(44, 34, 56, 0.85);
+      padding: 40px 50px;
+      max-width: 720px;
+      border-radius: 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(255, 255, 255, 0.05);
+      user-select: text;
+      text-shadow: 1px 2px 5px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+      overflow-wrap: break-word;
+    }
+
+    .poem:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 45px rgba(0, 0, 0, 0.9), inset 0 0 35px rgba(255, 255, 255, 0.1);
+    }
+
+    .poem h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      color: #ffd966;
+      text-shadow: 2px 2px 8px #b3944c;
+      letter-spacing: 0.06em;
+    }
+
+    .poem p {
+      font-size: 1.3rem;
+      margin-bottom: 26px;
+      color: #d8c6ff;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
+    }
+
+    .poem p:last-child {
+      margin-bottom: 0;
+    }
+
+    .poem p:hover {
+      color: #fff8c4;
+      cursor: default;
+    }
+
+    @media (max-width: 650px) {
+      body {
+        padding: 25px 15px;
+      }
+      .poem {
+        padding: 30px 25px;
+        max-width: 100%;
+      }
+      .poem h3 {
+        font-size: 2.1rem;
+        margin-bottom: 22px;
+      }
+      .poem p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+    }
+
+    .poem:focus {
+      outline: 3px solid #ffd966;
+      outline-offset: 10px;
+      box-shadow: 0 0 15px 4px #ffd966aa;
+    }
+  </style>
+</head>
+<body>
+  <section class="poem" tabindex="0" aria-label="Poem: यात्रा गरौँला">
+    <h3>यात्रा गरौँला</h3>
+    <p>हामी सँगै यात्रा गरौँला।<br>
+      उकाली चढौला,<br>
+      ओराली झडौँला।<br>
+      यसरी हामी यो जीवनको<br>
+      लामो यात्रा गरौला ।।</p>
+
+    <p>हामीले यात्रा गर्दा,<br>
+      कयौँ बाटाहरूमा कैयौं<br>
+      साँघुरा ठाउँहरू आउनेछन्,<br>
+      जहाँ हामीले एकअर्काको<br>
+      हात समाएर हिँड्न मिल्ने छैन,<br>
+      तर पनि हामी हात समाएर<br>
+      सँगै हिँड्न नसके पनि<br>
+      यो जीवनको यात्रामा सधैं सँगै हुनेछौँ।</p>
+
+    <p>हामीले यो यात्रा गरिरहँदा,<br>
+      यो यात्राको क्रममा अघि बढिरहँदा,<br>
+      हामी बेसरी थाक्छौँ होला।<br>
+      तर हामी थाके पनि,<br>
+      एकअर्काको लागि<br>
+      ती सबै थकानहरू मेट्ने चौतारी बन्नेछ<br>
+      र फेरि यात्रा गर्नेछौँ।।</p>
+
+    <p>यसरी हामी यो जीवनको यात्रामा,<br>
+      एकअर्काको चौतारी बन्दै,<br>
+      भारीहरू उठाउन मिल्ने टेको बन्दै,<br>
+      यात्रामा तिर्खा लागेका प्यासहरू<br>
+      मेटाउने पानी बन्दै,<br>
+      यात्राको क्रममा प्रत्येक दृश्य<br>
+      हेर्न मिल्ने आँखाको नानी बन्दै,<br>
+      यसरी तिमी र म सँगै जीवनको यात्रा गरौँला।</p>
+  </section>
+</body>
+</html>
