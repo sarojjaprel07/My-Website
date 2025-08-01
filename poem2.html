@@ -1,107 +1,285 @@
 <!DOCTYPE html>
 <html lang="ne">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>तिम्रो खुसी पनि अचम्मको छ - कविता</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Noto Sans Devanagari', sans-serif;
-      background: url('https://i.ibb.co/R7nPz7H/aged-paper-texture.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #3a2d1f;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      line-height: 2;
-      padding: 30px 15px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>तिम्रो खुसी पनि अचम्मको छ - कविता</title>
 
-    .poem-container {
-      background: rgba(255, 255, 240, 0.92); /* soft parchment overlay */
-      padding: 50px 35px;
-      border-radius: 12px;
-      max-width: 780px;
-      margin: auto;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.35),
-                  inset 0 0 80px rgba(139, 69, 19, 0.25);
-      border: 1px solid rgba(139, 69, 19, 0.25);
-      font-size: 1.3rem;
-      position: relative;
-      transition: transform 0.3s ease-in-out;
-    }
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
 
-    .poem-container:hover {
-      transform: scale(1.01);
-    }
+<style>
+  :root {
+    --paper-bg: #f4f1e8;
+    --paper-aged: #e8e0d0;
+    --ink-dark: #2c1810;
+    --ink-medium: #4a3426;
+    --ink-light: #6b4f3a;
+    --pen-body: #8b4513;
+    --pen-tip: #2f1b14;
+    --text-shadow: rgba(0, 0, 0, 0.3);
+    --btn-bg: #8b4513;
+    --btn-hover-bg: #a0522d;
+    --btn-color: #f4f1e8;
+    --btn-shadow: rgba(139,69,19,0.4);
+  }
 
-    /* optional faint paper border burn effect */
-    .poem-container::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      background: url('https://i.ibb.co/bK0GJ6n/burned-edge-overlay.png') no-repeat center/cover;
-      opacity: 0.25;
-      pointer-events: none;
-    }
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
 
-    .poem-title {
-      font-size: 2.6rem;
-      font-weight: bold;
-      color: #5a3825;
-      margin-bottom: 25px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-    }
+  body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(139, 129, 108, 0.03) 2px,
+        rgba(139, 129, 108, 0.03) 4px
+      ),
+      radial-gradient(circle at 15% 20%, rgba(212, 196, 168, 0.4) 0%, transparent 25%),
+      radial-gradient(circle at 85% 10%, rgba(212, 196, 168, 0.3) 0%, transparent 20%),
+      radial-gradient(circle at 70% 80%, rgba(212, 196, 168, 0.3) 0%, transparent 30%),
+      radial-gradient(circle at 25% 90%, rgba(212, 196, 168, 0.25) 0%, transparent 20%),
+      linear-gradient(135deg, var(--paper-bg) 0%, var(--paper-aged) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(10px, 3vw, 20px);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
 
-    .poem-container p {
-      margin: 1.5rem 0;
-      color: #2c1d14;
-      font-weight: 500;
-    }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(139, 129, 108, 0.08) 1px, transparent 0),
+      radial-gradient(circle at 20% 30%, rgba(160, 140, 110, 0.1) 1px, transparent 2px),
+      radial-gradient(circle at 60% 70%, rgba(160, 140, 110, 0.08) 1px, transparent 2px),
+      radial-gradient(circle at 80% 20%, rgba(160, 140, 110, 0.06) 1px, transparent 1px);
+    background-size: 8px 8px, 40px 40px, 60px 60px, 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-    /* Back button */
-    .back-home {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 10px 25px;
-      font-size: 1rem;
-      background-color: #7b4b27;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-      font-weight: bold;
-    }
+  /* Fountain pen decoration */
+  .fountain-pen {
+    position: fixed;
+    right: clamp(20px, 5vw, 60px);
+    top: clamp(20px, 8vh, 80px);
+    width: clamp(120px, 15vw, 180px);
+    height: clamp(20px, 3vw, 25px);
+    z-index: 10;
+    transform: rotate(-25deg);
+    filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.3));
+  }
+  .pen-body {
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--pen-body) 0%, #a0522d 30%, var(--pen-body) 60%, #654321 100%);
+    border-radius: 12px 4px 4px 12px;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(255 255 255 / 0.3), inset 0 -2px 4px rgba(0 0 0 / 0.2);
+  }
+  .pen-body::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 60%;
+    height: 40%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255 255 255 / 0.2) 50%, transparent 100%);
+    border-radius: 2px;
+  }
+  .pen-tip {
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--pen-tip), #1a0f0a);
+    clip-path: polygon(0 20%, 100% 50%, 0 80%);
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-shadow: inset 0 1px 2px rgba(255 255 255 / 0.1), 0 1px 3px rgba(0 0 0 / 0.4);
+  }
+  .pen-clip {
+    position: absolute;
+    left: 65%;
+    top: -20%;
+    width: 8%;
+    height: 140%;
+    background: linear-gradient(180deg, #c0c0c0, #808080);
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0 0 0 / 0.3);
+  }
 
-    .back-home:hover {
-      background-color: #9d6b42;
-      transform: scale(1.05);
-    }
+  /* Back/Home Button */
+  .back-button {
+    position: fixed;
+    top: clamp(15px, 4vh, 25px);
+    left: clamp(15px, 4vw, 30px);
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+    padding: clamp(8px, 1.5vw, 12px) clamp(14px, 3vw, 22px);
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px var(--btn-shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    z-index: 20;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+  }
+  .back-button:hover,
+  .back-button:focus {
+    background-color: var(--btn-hover-bg);
+    box-shadow: 0 6px 15px rgba(165, 82, 45, 0.7);
+    outline: none;
+  }
+  .back-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 7px rgba(139, 69, 19, 0.4);
+  }
+  .back-button svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--btn-color);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
 
-    /* Mobile adjustments */
-    @media (max-width: 600px) {
-      .poem-container {
-        font-size: 1.1rem;
-        padding: 25px 18px;
-      }
-      .poem-title {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  /* Main container (paper) */
+  .poem-container {
+    background:
+      radial-gradient(circle at 30px 80px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 140px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 200px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 260px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 320px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 380px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 440px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 500px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 560px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 30px 620px, transparent 6px, var(--paper-bg) 7px),
+      radial-gradient(circle at 90% 15%, rgba(212,196,168,0.2) 0%, transparent 40%),
+      radial-gradient(circle at 10% 85%, rgba(212,196,168,0.15) 0%, transparent 35%),
+      linear-gradient(180deg, var(--paper-bg) 0%, #f0ebe0 100%);
+    box-shadow:
+      0 clamp(8px, 2vw, 15px) clamp(20px, 4vw, 35px) rgba(0,0,0,0.2),
+      0 clamp(3px, 1vw, 5px) clamp(8px, 2vw, 15px) rgba(0,0,0,0.1),
+      inset 0 1px 0 rgba(255 255 255 / 0.4),
+      inset 1px 0 0 rgba(255 255 255 / 0.3),
+      inset -1px 0 0 rgba(0 0 0 / 0.05),
+      inset 0 -1px 0 rgba(0 0 0 / 0.05);
+    border: 1px solid rgba(139, 129, 108, 0.3);
+    border-left: 3px solid rgba(139, 129, 108, 0.2);
+    padding: clamp(60px, 8vh, 80px) clamp(35px, 7vw, 70px) clamp(40px, 8vh, 80px) clamp(45px, 9vw, 90px);
+    max-width: 900px;
+    width: 100%;
+    height: clamp(75vh, 85vh, 90vh);
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    scroll-behavior: smooth;
+    display: grid;
+    place-items: start center;
+  }
+
+  .poem-container::before {
+    content: '';
+    position: absolute;
+    left: clamp(35px, 8vw, 75px);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, 
+      rgba(255, 0, 0, 0.4) 0%,
+      rgba(255, 0, 0, 0.5) 20%,
+      rgba(255, 0, 0, 0.6) 50%,
+      rgba(255, 0, 0, 0.5) 80%,
+      rgba(255, 0, 0, 0.4) 100%);
+    box-shadow: 1px 0 2px rgba(255, 0, 0, 0.3),
+                -1px 0 1px rgba(255, 0, 0, 0.1),
+                0 0 3px rgba(255, 0, 0, 0.2);
+    border-radius: 1px;
+    z-index: 0;
+  }
+
+  /* Scrollbar styling */
+  .poem-container::-webkit-scrollbar {
+    width: clamp(8px, 1.5vw, 12px);
+  }
+  .poem-container::-webkit-scrollbar-track {
+    background: rgba(212,196,168,0.2);
+    border-radius: 6px;
+  }
+  .poem-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--ink-medium), var(--ink-dark));
+    border-radius: 6px;
+    border: 2px solid rgba(212,196,168,0.2);
+  }
+  .poem-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--ink-light), var(--ink-medium));
+  }
+
+  /* Poem content */
+  .poem-content {
+    width: 100%;
+    max-width: 860px;
+    color: var(--ink-dark);
+    font-weight: 400;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    line-height: clamp(1.8, 2.2vw, 2.1);
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Poem heading style */
+  .poem-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--ink-dark);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  }
+</style>
+
 </head>
 <body>
-  <div class="poem-container">
+
+<!-- Back / Home button -->
+<a href="index.html" class="back-button" aria-label="Back to Home">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+  Home
+</a>
+
+<!-- Fountain pen decoration -->
+<div class="fountain-pen" aria-hidden="true" role="presentation">
+  <div class="pen-body"></div>
+  <div class="pen-tip"></div>
+  <div class="pen-clip"></div>
+</div>
+
+<!-- Poem container -->
+<main class="poem-container" role="main" aria-label="कविता: तिम्रो खुसी पनि अचम्मको छ">
+  <article class="poem-content" lang="ne">
     <h1 class="poem-title">तिम्रो खुसी पनि अचम्मको छ</h1>
-    <p>
-      तिम्रो खुसी पनि अचम्मको छ,<br />
+    <p>तिम्रो खुसी पनि अचम्मको छ,<br />
       अरुले ढलाउँदा ढल्दिन्छ,<br />
       अरुको इशारामा चल्दिन्छ।<br /><br />
 
@@ -121,8 +299,8 @@
       खोई, त्यस्तोलाई पनि के भन्नु,<br />
       त्यसैले , तिम्रो खुसी पनि अचम्मको छ।
     </p>
+  </article>
+</main>
 
-    <a href="index.html" class="back-home">← गृहपृष्ठमा फर्कनुहोस्</a>
-  </div>
 </body>
 </html>
