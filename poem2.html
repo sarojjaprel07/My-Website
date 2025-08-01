@@ -2,11 +2,12 @@
 <html lang="ne">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 <title>तिम्रो खुसी पनि अचम्मको छ - कविता</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
   :root {
@@ -22,6 +23,9 @@
     --btn-hover-bg: #a0522d;
     --btn-color: #f4f1e8;
     --btn-shadow: rgba(139,69,19,0.4);
+    --share-color: #6b4f3a;
+    --share-hover: #8b4513;
+    --date-color: #8b4513;
   }
 
   /* Reset */
@@ -46,11 +50,13 @@
       linear-gradient(135deg, var(--paper-bg) 0%, var(--paper-aged) 100%);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: clamp(10px, 3vw, 20px);
+    padding: 20px;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    position: relative;
   }
 
   body::before {
@@ -77,7 +83,15 @@
     z-index: 10;
     transform: rotate(-25deg);
     filter: drop-shadow(2px 3px 6px rgba(0,0,0,0.3));
+    display: none; /* Hidden on mobile by default */
   }
+  
+  @media (min-width: 768px) {
+    .fountain-pen {
+      display: block; /* Show on tablet and larger */
+    }
+  }
+
   .pen-body {
     width: 70%;
     height: 100%;
@@ -185,22 +199,22 @@
       inset 0 -1px 0 rgba(0 0 0 / 0.05);
     border: 1px solid rgba(139, 129, 108, 0.3);
     border-left: 3px solid rgba(139, 129, 108, 0.2);
-    padding: clamp(60px, 8vh, 80px) clamp(35px, 7vw, 70px) clamp(40px, 8vh, 80px) clamp(45px, 9vw, 90px);
-    max-width: 900px;
+    padding: clamp(40px, 8vh, 80px) clamp(25px, 5vw, 70px) clamp(30px, 6vh, 80px) clamp(35px, 7vw, 90px);
+    max-width: min(900px, 90vw);
     width: 100%;
-    height: clamp(75vh, 85vh, 90vh);
+    min-height: auto;
+    height: auto;
     overflow-y: auto;
     position: relative;
     z-index: 1;
     scroll-behavior: smooth;
-    display: grid;
-    place-items: start center;
+    margin: 20px 0;
   }
 
   .poem-container::before {
     content: '';
     position: absolute;
-    left: clamp(35px, 8vw, 75px);
+    left: clamp(25px, 6vw, 75px);
     top: 0;
     bottom: 0;
     width: 2px;
@@ -241,7 +255,7 @@
     color: var(--ink-dark);
     font-weight: 400;
     font-size: clamp(1rem, 3vw, 1.4rem);
-    line-height: clamp(1.8, 2.2vw, 2.1);
+    line-height: 1.8;
     text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
   }
 
@@ -249,14 +263,284 @@
   .poem-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.8rem, 5vw, 3rem);
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--ink-dark);
     text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    line-height: 1.3;
+  }
+  
+  /* Publish date */
+  .publish-date {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: var(--date-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(139, 69, 19, 0.3);
+    padding-bottom: 1.2rem;
+  }
+  
+  /* Poem paragraphs */
+  .poem-content p {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Share button container */
+  .share-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+    border-top: 1px dashed rgba(139, 69, 19, 0.3);
+    width: 100%;
+  }
+  
+  .share-button {
+    background: transparent;
+    border: 2px solid var(--share-color);
+    color: var(--share-color);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    box-shadow: 0 2px 8px rgba(107, 79, 58, 0.15);
+  }
+  
+  .share-button:hover {
+    background-color: var(--share-color);
+    color: var(--paper-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 79, 58, 0.25);
+  }
+  
+  .share-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Footer */
+  .page-footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: var(--ink-medium);
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Share options modal */
+  .share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .share-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-content {
+    background: var(--paper-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: min(500px, 90vw);
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+  
+  .share-modal.active .modal-content {
+    transform: translateY(0);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+  
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--ink-dark);
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--ink-medium);
+    transition: color 0.2s;
+  }
+  
+  .close-modal:hover {
+    color: var(--ink-dark);
+  }
+  
+  .share-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+  
+  .share-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.8rem;
+    border-radius: 8px;
+    width: 90px;
+  }
+  
+  .share-option:hover {
+    background: rgba(212, 196, 168, 0.3);
+  }
+  
+  .share-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: white;
+  }
+  
+  .facebook-bg { background: #3b5998; }
+  .twitter-bg { background: #1da1f2; }
+  .whatsapp-bg { background: #25d366; }
+  .copy-bg { background: var(--btn-bg); }
+  
+  .share-label {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-dark);
+    text-align: center;
+  }
+  
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--paper-bg);
+    color: var(--ink-dark);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.4s ease;
+    font-size: 0.9rem;
+  }
+  
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    body {
+      padding: 15px;
+    }
+    
+    .poem-container {
+      padding: 35px 20px 30px 30px;
+      max-width: 95vw;
+    }
+    
+    .poem-container::before {
+      left: 20px;
+    }
+    
+    .share-options {
+      gap: 0.5rem;
+    }
+    
+    .share-option {
+      width: 80px;
+      padding: 0.6rem;
+    }
+    
+    .share-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.4rem;
+    }
+    
+    .modal-content {
+      padding: 1.2rem;
+    }
+    
+    .modal-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .poem-container {
+      padding: 30px 15px 25px 25px;
+    }
+    
+    .share-option {
+      width: 70px;
+    }
+    
+    .share-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+    }
+    
+    .share-label {
+      font-size: 0.75rem;
+    }
+    
+    .back-button {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
   }
 </style>
-
 </head>
 <body>
 
@@ -279,6 +563,8 @@
 <main class="poem-container" role="main" aria-label="कविता: तिम्रो खुसी पनि अचम्मको छ">
   <article class="poem-content" lang="ne">
     <h1 class="poem-title">तिम्रो खुसी पनि अचम्मको छ</h1>
+    <div class="publish-date">Published on: 2025-8-1 </div>
+    
     <p>तिम्रो खुसी पनि अचम्मको छ,<br />
       अरुले ढलाउँदा ढल्दिन्छ,<br />
       अरुको इशारामा चल्दिन्छ।<br /><br />
@@ -299,8 +585,165 @@
       खोई, त्यस्तोलाई पनि के भन्नु,<br />
       त्यसैले , तिम्रो खुसी पनि अचम्मको छ।
     </p>
+    
+    <div class="share-container">
+      <button class="share-button" id="shareBtn">
+        <i class="fas fa-share-alt"></i> Share this Poem
+      </button>
+    </div>
   </article>
 </main>
 
+<div class="page-footer">
+  © 2025 Experience with Saroj | All Rights Reserved
+</div>
+
+<!-- Share Modal -->
+<div class="share-modal" id="shareModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Share this Poem</h3>
+      <button class="close-modal" id="closeModal">&times;</button>
+    </div>
+    <div class="share-options">
+      <div class="share-option" id="facebookShare">
+        <div class="share-icon facebook-bg">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <span class="share-label">Facebook</span>
+      </div>
+      <div class="share-option" id="twitterShare">
+        <div class="share-icon twitter-bg">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <span class="share-label">Twitter</span>
+      </div>
+      <div class="share-option" id="whatsappShare">
+        <div class="share-icon whatsapp-bg">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <span class="share-label">WhatsApp</span>
+      </div>
+      <div class="share-option" id="copyLink">
+        <div class="share-icon copy-bg">
+          <i class="fas fa-link"></i>
+        </div>
+        <span class="share-label">Copy Link</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span>Link copied to clipboard!</span>
+</div>
+
+<script>
+  // DOM Elements
+  const shareBtn = document.getElementById('shareBtn');
+  const shareModal = document.getElementById('shareModal');
+  const closeModal = document.getElementById('closeModal');
+  const toast = document.getElementById('toast');
+  
+  // Share options
+  const facebookShare = document.getElementById('facebookShare');
+  const twitterShare = document.getElementById('twitterShare');
+  const whatsappShare = document.getElementById('whatsappShare');
+  const copyLink = document.getElementById('copyLink');
+  
+  // Current page URL and title
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent(document.title);
+  
+  // Open modal
+  shareBtn.addEventListener('click', () => {
+    shareModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  });
+  
+  // Close modal
+  closeModal.addEventListener('click', () => {
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Close modal when clicking outside
+  shareModal.addEventListener('click', (e) => {
+    if (e.target === shareModal) {
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+  });
+  
+  // Facebook share
+  facebookShare.addEventListener('click', () => {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    window.open(url, '_blank', 'width=600,height=400');
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Twitter share
+  twitterShare.addEventListener('click', () => {
+    const url = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+    window.open(url, '_blank', 'width=600,height=400');
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // WhatsApp share
+  whatsappShare.addEventListener('click', () => {
+    const url = `https://api.whatsapp.com/send?text=${pageTitle} ${pageUrl}`;
+    window.open(url, '_blank');
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Copy link
+  copyLink.addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      // Show toast
+      toast.classList.add('show');
+      
+      // Hide toast after 3 seconds
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+      
+      // Close modal
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }).catch(err => {
+      console.error('Could not copy text: ', err);
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = window.location.href;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      } catch (err) {
+        console.error('Fallback copy failed: ', err);
+      }
+      document.body.removeChild(textArea);
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    });
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && shareModal.classList.contains('active')) {
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+  });
+</script>
 </body>
 </html>
