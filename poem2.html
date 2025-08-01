@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Noto Sans Devanagari', sans-serif;
-      background: url('https://i.ibb.co/zGrttn3/old-paper-texture.jpg') no-repeat center center fixed;
+      background: url('https://i.ibb.co/R7nPz7H/aged-paper-texture.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #3a2d1f;
       min-height: 100vh;
@@ -23,14 +23,14 @@
     }
 
     .poem-container {
-      background: rgba(255, 255, 240, 0.88); /* subtle faded parchment look */
+      background: rgba(255, 255, 240, 0.92); /* soft parchment overlay */
       padding: 50px 35px;
       border-radius: 12px;
       max-width: 780px;
       margin: auto;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.35),
-                  inset 0 0 80px rgba(139, 69, 19, 0.3);
-      border: 1px solid rgba(139, 69, 19, 0.3);
+                  inset 0 0 80px rgba(139, 69, 19, 0.25);
+      border: 1px solid rgba(139, 69, 19, 0.25);
       font-size: 1.3rem;
       position: relative;
       transition: transform 0.3s ease-in-out;
@@ -40,14 +40,14 @@
       transform: scale(1.01);
     }
 
-    /* Slight burnt edge overlay */
+    /* optional faint paper border burn effect */
     .poem-container::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 12px;
-      background: url('https://i.ibb.co/z7H2k6f/burnt-edges.png') no-repeat center/cover;
-      opacity: 0.3;
+      background: url('https://i.ibb.co/bK0GJ6n/burned-edge-overlay.png') no-repeat center/cover;
+      opacity: 0.25;
       pointer-events: none;
     }
 
@@ -65,7 +65,7 @@
       font-weight: 500;
     }
 
-    /* Elegant back button */
+    /* Back button */
     .back-home {
       display: inline-block;
       margin-top: 30px;
@@ -85,13 +85,12 @@
       transform: scale(1.05);
     }
 
-    /* Mobile Responsive */
+    /* Mobile adjustments */
     @media (max-width: 600px) {
       .poem-container {
         font-size: 1.1rem;
         padding: 25px 18px;
       }
-
       .poem-title {
         font-size: 2rem;
       }
