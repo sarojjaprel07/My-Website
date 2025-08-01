@@ -4,71 +4,469 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Story</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Montserrat:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* Background with subtle gradient */
+    /* Base styles with warm, storybook feel */
+    :root {
+      --primary: #8b5a2b;
+      --secondary: #d4a373;
+      --accent: #faedcd;
+      --text: #5a3e2b;
+      --light: #fefae0;
+    }
+    
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.7;
-      max-width: 700px;
-      margin: 50px auto;
-      padding: 30px 40px;
-      background: linear-gradient(135deg, #fff8e1, #ffe0b2);
-      color: #4a4a4a;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(255, 165, 0, 0.15);
-      transition: background 0.3s ease;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(250, 237, 205, 0.8) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(250, 237, 205, 0.6) 0%, transparent 20%);
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Heading style with underline */
+    /* Page curl effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(225deg, var(--light) 45%, #ddd 50%, var(--light) 56%);
+      box-shadow: -1px 1px 3px rgba(0,0,0,0.1);
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    body:hover::before {
+      opacity: 1;
+    }
+
+    /* Story container with paper texture */
+    .story-container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 50px 60px;
+      background-color: var(--accent);
+      background-image: 
+        linear-gradient(var(--accent) 1.1px, transparent 1.1px),
+        linear-gradient(90deg, var(--accent) 1.1px, transparent 1.1px);
+      background-size: 22px 22px;
+      border-radius: 4px;
+      box-shadow: 
+        0 0 0 8px var(--secondary),
+        0 30px 50px -20px rgba(139, 90, 43, 0.4),
+        inset 0 0 20px rgba(250, 237, 205, 0.8);
+      position: relative;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: fadeInUp 1.2s ease-out 0.3s forwards;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .story-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(250, 237, 205, 1), rgba(250, 237, 205, 0));
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .story-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(250, 237, 205, 1), rgba(250, 237, 205, 0));
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Heading with elegant underline */
     h1 {
       text-align: center;
-      color: #e65100;
+      color: var(--primary);
       font-weight: 700;
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 2rem;
       position: relative;
+      font-family: 'Dancing Script', cursive;
+      text-shadow: 1px 1px 2px rgba(139, 90, 43, 0.2);
+      transform: scale(0.95);
+      opacity: 0;
+      animation: scaleIn 1s ease-out 0.6s forwards;
     }
+
+    @keyframes scaleIn {
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
     h1::after {
       content: "";
       display: block;
-      width: 80px;
-      height: 4px;
-      background: #ff7043;
-      margin: 12px auto 0;
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+      margin: 15px auto 0;
       border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: center;
+      animation: lineExpand 1.2s ease-out 1s forwards;
     }
 
-    /* Paragraph styling */
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 1.3rem;
-      text-align: justify;
-      letter-spacing: 0.02em;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 480px) {
-      body {
-        padding: 20px 15px;
-        margin: 30px 10px;
+    @keyframes lineExpand {
+      from {
+        transform: scaleX(0);
       }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    /* Paragraph styling with fade-in effect */
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.8rem;
+      text-align: justify;
+      letter-spacing: 0.4px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInParagraph 1s ease-out forwards;
+      position: relative;
+      padding-left: 20px;
+      border-left: 1px dotted rgba(139, 90, 43, 0.3);
+    }
+
+    p:nth-child(1) { animation-delay: 1.2s; }
+    p:nth-child(2) { animation-delay: 1.4s; }
+    p:nth-child(3) { animation-delay: 1.6s; }
+    p:nth-child(4) { animation-delay: 1.8s; }
+
+    @keyframes fadeInParagraph {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* First letter drop cap */
+    p:first-of-type::first-letter {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4.5rem;
+      float: left;
+      line-height: 0.8;
+      margin: 0.15em 0.1em 0 0;
+      color: var(--primary);
+      text-shadow: 2px 2px 3px rgba(139, 90, 43, 0.2);
+    }
+
+    /* Floating quill pen decoration */
+    .quill {
+      position: absolute;
+      right: -40px;
+      top: 100px;
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.7;
+      transform: rotate(15deg);
+      animation: floatQuill 4s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes floatQuill {
+      0%, 100% { transform: rotate(15deg) translateY(0); }
+      50% { transform: rotate(12deg) translateY(-15px); }
+    }
+
+    /* Ink blot decorations */
+    .ink-blot {
+      position: absolute;
+      opacity: 0.08;
+      z-index: -1;
+      filter: blur(0.5px);
+    }
+
+    .ink-blot-1 {
+      top: 10%;
+      left: 5%;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .ink-blot-2 {
+      bottom: 15%;
+      right: 8%;
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(5px, 10px); }
+      50% { transform: translate(10px, 5px); }
+      75% { transform: translate(5px, -5px); }
+    }
+
+    /* Footer with back button */
+    .story-footer {
+      margin-top: 50px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 2s forwards;
+    }
+
+    .home-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--primary);
+      background: var(--accent);
+      border: 2px solid var(--secondary);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 
+        0 4px 15px rgba(139, 90, 43, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 8px 25px rgba(139, 90, 43, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+      background: var(--light);
+    }
+
+    .home-button:active {
+      transform: translateY(1px);
+    }
+
+    .home-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.7s;
+    }
+
+    .home-button:hover::before {
+      left: 100%;
+    }
+
+    .button-icon {
+      margin-right: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .home-button:hover .button-icon {
+      transform: translateX(-5px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .story-container {
+        padding: 40px 30px;
+        margin: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 2.4rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        padding-left: 15px;
+      }
+      
+      .quill {
+        right: -20px;
+        top: 80px;
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .story-container {
+        padding: 30px 20px;
+        margin: 20px 15px;
+      }
+      
       h1 {
         font-size: 2rem;
       }
+      
       p {
         font-size: 1rem;
+        padding-left: 10px;
       }
+      
+      p:first-of-type::first-letter {
+        font-size: 3.5rem;
+      }
+      
+      .quill {
+        display: none;
+      }
+    }
+
+    /* Page turn effect on hover */
+    .story-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 0 0 8px var(--secondary),
+        0 40px 60px -25px rgba(139, 90, 43, 0.5),
+        inset 0 0 30px rgba(250, 237, 205, 0.9);
+    }
+
+    /* Subtle cursor follower */
+    .cursor-follower {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(139, 90, 43, 0.1);
+      pointer-events: none;
+      z-index: 999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+      mix-blend-mode: multiply;
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
-  <h1>About Story</h1>
-  <p>A story is a way to share experiences, ideas, and emotions with others. It can be told through words, pictures, or actions. Stories help us understand the world around us by showing events that happen to people or characters. They often have a beginning, middle, and end, which keeps the listener or reader interested.</p>
+  <div class="ink-blot ink-blot-1"></div>
+  <div class="ink-blot ink-blot-2"></div>
   
-  <p>Stories can teach us lessons, entertain us, or make us think deeply. From ancient times, people have used stories to pass knowledge from one generation to another. Whether it is a fairy tale, a personal experience, or a fictional adventure, stories connect us and make us feel less alone.</p>
-  
-  <p>Writing a story allows us to express our creativity and share our imagination. It also helps us improve our language skills and learn how to communicate clearly. Everyone can write stories, and each story is unique because it reflects the writer’s thoughts and feelings.</p>
-  
-  <p>In short, a story is more than just words; it is a bridge that connects people, teaches important lessons, and brings joy and meaning to our lives.</p>
+  <div class="story-container">
+    <h1>About Story</h1>
+    <p>A story is a way to share experiences, ideas, and emotions with others. It can be told through words, pictures, or actions. Stories help us understand the world around us by showing events that happen to people or characters. They often have a beginning, middle, and end, which keeps the listener or reader interested.</p>
+    
+    <p>Stories can teach us lessons, entertain us, or make us think deeply. From ancient times, people have used stories to pass knowledge from one generation to another. Whether it is a fairy tale, a personal experience, or a fictional adventure, stories connect us and make us feel less alone.</p>
+    
+    <p>Writing a story allows us to express our creativity and share our imagination. It also helps us improve our language skills and learn how to communicate clearly. Everyone can write stories, and each story is unique because it reflects the writer's thoughts and feelings.</p>
+    
+    <p>In short, a story is more than just words; it is a bridge that connects people, teaches important lessons, and brings joy and meaning to our lives.</p>
+    
+    <div class="quill">✒️</div>
+
+    <!-- Footer with back button -->
+    <div class="story-footer">
+      <a href="index.html" class="home-button">
+        <span class="button-icon">⌂</span>
+        <span>Back to Home</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cursor-follower"></div>
+
+  <script>
+    // Cursor follower effect
+    document.addEventListener('mousemove', function(e) {
+      const follower = document.querySelector('.cursor-follower');
+      follower.style.left = e.clientX + 'px';
+      follower.style.top = e.clientY + 'px';
+      
+      // Expand when hovering interactive elements
+      if (e.target.closest('.story-container')) {
+        follower.style.width = '40px';
+        follower.style.height = '40px';
+        follower.style.background = 'rgba(139, 90, 43, 0.15)';
+      } else {
+        follower.style.width = '20px';
+        follower.style.height = '20px';
+        follower.style.background = 'rgba(139, 90, 43, 0.1)';
+      }
+    });
+
+    // Create additional ink blots dynamically
+    function createInkBlots() {
+      const container = document.body;
+      for (let i = 0; i < 3; i++) {
+        const blot = document.createElement('div');
+        blot.className = 'ink-blot';
+        blot.style.left = Math.random() * 90 + 5 + '%';
+        blot.style.top = Math.random() * 90 + 5 + '%';
+        blot.style.width = (Math.random() * 60 + 40) + 'px';
+        blot.style.height = blot.style.width;
+        blot.style.opacity = Math.random() * 0.05 + 0.03;
+        blot.style.animationDuration = (Math.random() * 10 + 5) + 's';
+        blot.style.animationDelay = (Math.random() * 5) + 's';
+        container.appendChild(blot);
+      }
+    }
+
+    // Initialize effects
+    document.addEventListener('DOMContentLoaded', function() {
+      createInkBlots();
+      
+      // Add subtle paper texture noise
+      const container = document.querySelector('.story-container');
+      container.style.backgroundImage += 
+        ', linear-gradient(rgba(250, 237, 205, 0.8), rgba(250, 237, 205, 0.8))';
+    });
+
+    // Page load animation
+    window.addEventListener('load', function() {
+      document.body.style.animation = 'fadeIn 1s ease-out forwards';
+    });
+  </script>
 </body>
 </html>
