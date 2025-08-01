@@ -21,9 +21,10 @@
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* Advanced animated background */
+    /* Cosmic background with softer animation */
     .cosmic-bg {
       position: fixed;
       top: 0;
@@ -31,103 +32,117 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
         linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      animation: cosmicShift 20s ease-in-out infinite;
+      animation: cosmicShift 30s ease-in-out infinite;
+      z-index: -2;
     }
 
     @keyframes cosmicShift {
-      0%, 100% { filter: hue-rotate(0deg) brightness(1); }
-      25% { filter: hue-rotate(90deg) brightness(1.1); }
-      50% { filter: hue-rotate(180deg) brightness(0.9); }
-      75% { filter: hue-rotate(270deg) brightness(1.05); }
+      0%, 100% { 
+        filter: hue-rotate(0deg) brightness(1); 
+        background-position: 0% 0%;
+      }
+      25% { 
+        filter: hue-rotate(5deg) brightness(1.02); 
+        background-position: 2% 2%;
+      }
+      50% { 
+        filter: hue-rotate(-5deg) brightness(0.98); 
+        background-position: -2% -2%;
+      }
+      75% { 
+        filter: hue-rotate(3deg) brightness(1.01); 
+        background-position: 1% -1%;
+      }
     }
 
-    /* Floating orbs */
+    /* Floating orbs - more subtle */
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(1px);
-      animation: float 8s ease-in-out infinite;
+      filter: blur(15px);
+      animation: float 12s ease-in-out infinite;
       pointer-events: none;
+      opacity: 0.6;
+      mix-blend-mode: soft-light;
     }
 
     .orb1 {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-      top: 10%;
+      top: 15%;
       left: 10%;
       animation-delay: 0s;
     }
 
     .orb2 {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       background: linear-gradient(45deg, #a8edea, #fed6e3);
       top: 70%;
-      right: 20%;
-      animation-delay: -2s;
+      right: 15%;
+      animation-delay: -3s;
     }
 
     .orb3 {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       background: linear-gradient(45deg, #667eea, #764ba2);
-      bottom: 20%;
-      left: 70%;
-      animation-delay: -4s;
+      bottom: 15%;
+      left: 75%;
+      animation-delay: -6s;
     }
 
     @keyframes float {
       0%, 100% { 
         transform: translateY(0px) translateX(0px) scale(1);
-        opacity: 0.7;
       }
       33% { 
-        transform: translateY(-30px) translateX(20px) scale(1.1);
-        opacity: 0.9;
+        transform: translateY(-20px) translateX(15px) scale(1.05);
       }
       66% { 
-        transform: translateY(20px) translateX(-15px) scale(0.9);
-        opacity: 0.8;
+        transform: translateY(15px) translateX(-10px) scale(0.95);
       }
     }
 
-    /* Sparkle effect */
-    .sparkles {
+    /* Subtle particle effect */
+    .particles {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 1;
+      z-index: -1;
     }
 
-    .sparkle {
+    .particle {
       position: absolute;
-      width: 4px;
-      height: 4px;
-      background: white;
+      width: 2px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.5);
       border-radius: 50%;
-      animation: sparkle 3s linear infinite;
+      animation: particleFall linear infinite;
     }
 
-    @keyframes sparkle {
+    @keyframes particleFall {
       0% {
+        transform: translateY(-100vh) translateX(0);
         opacity: 0;
-        transform: scale(0) rotate(0deg);
       }
-      50% {
+      10% {
         opacity: 1;
-        transform: scale(1) rotate(180deg);
+      }
+      90% {
+        opacity: 1;
       }
       100% {
+        transform: translateY(100vh) translateX(100px);
         opacity: 0;
-        transform: scale(0) rotate(360deg);
       }
     }
 
@@ -142,26 +157,34 @@
     }
 
     .about-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(25px) saturate(180%);
-      border: 2px solid;
+      background: rgba(15, 15, 25, 0.7);
+      backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid;
       border-image: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.3) 0%,
         rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.4) 100%) 1;
+        rgba(255, 255, 255, 0.3) 100%) 1;
       padding: 80px 60px;
-      border-radius: 35px;
+      border-radius: 30px;
       box-shadow: 
-        0 40px 80px rgba(0, 0, 0, 0.4),
-        0 0 80px rgba(120, 119, 198, 0.1),
+        0 30px 60px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(120, 119, 198, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
       max-width: 900px;
       text-align: center;
       transform: translateY(50px);
       opacity: 0;
-      animation: dramaticEntrance 2s ease-out 0.5s forwards;
+      animation: dramaticEntrance 1.8s ease-out 0.5s forwards;
       position: relative;
       overflow: hidden;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .about-card:hover {
+      box-shadow: 
+        0 40px 80px rgba(0, 0, 0, 0.4),
+        0 0 100px rgba(120, 119, 198, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
     .about-card::before {
@@ -171,20 +194,20 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: conic-gradient(from 0deg, transparent, rgba(120, 119, 198, 0.1), transparent, rgba(255, 119, 198, 0.1), transparent);
-      animation: rotate 20s linear infinite;
+      background: conic-gradient(from 0deg, transparent, rgba(120, 119, 198, 0.05), transparent, rgba(255, 119, 198, 0.05), transparent);
+      animation: rotate 30s linear infinite;
       z-index: -1;
     }
 
     .about-card::after {
       content: '';
       position: absolute;
-      top: 3px;
-      left: 3px;
-      right: 3px;
-      bottom: 3px;
-      background: rgba(10, 10, 10, 0.8);
-      border-radius: 32px;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: rgba(10, 10, 15, 0.85);
+      border-radius: 28px;
       z-index: -1;
     }
 
@@ -194,14 +217,14 @@
 
     @keyframes dramaticEntrance {
       0% {
-        transform: translateY(100px) scale(0.8);
+        transform: translateY(80px) scale(0.95);
         opacity: 0;
-        filter: blur(10px);
+        filter: blur(5px);
       }
       60% {
-        transform: translateY(-10px) scale(1.02);
-        opacity: 0.8;
-        filter: blur(2px);
+        transform: translateY(-5px) scale(1.01);
+        opacity: 0.9;
+        filter: blur(1px);
       }
       100% {
         transform: translateY(0) scale(1);
@@ -221,22 +244,24 @@
       color: #a8edea;
       margin-bottom: 20px;
       opacity: 0;
-      animation: fadeInScale 1.5s ease-out 2.5s forwards;
+      animation: fadeInScale 1.2s ease-out 1.5s forwards;
+      text-shadow: 0 0 15px rgba(168, 237, 234, 0.3);
     }
 
     .name-title {
       font-family: 'Playfair Display', serif;
-      font-size: 4.5rem;
+      font-size: 4.2rem;
       font-weight: 700;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-      background-size: 400% 400%;
+      background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: gradientShift 8s ease-in-out infinite, titleGlow 2s ease-out 3s forwards;
+      animation: gradientShift 12s ease-in-out infinite, titleGlow 2s ease-out 2s forwards;
       margin-bottom: 20px;
       position: relative;
-      text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+      text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+      line-height: 1.2;
     }
 
     @keyframes gradientShift {
@@ -246,14 +271,14 @@
 
     @keyframes titleGlow {
       to {
-        filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
+        text-shadow: 0 0 25px rgba(102, 126, 234, 0.4);
       }
     }
 
     @keyframes fadeInScale {
       from {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.8);
       }
       to {
         opacity: 1;
@@ -267,35 +292,37 @@
       bottom: -15px;
       left: 50%;
       transform: translateX(-50%);
-      width: 120px;
-      height: 4px;
+      width: 100px;
+      height: 3px;
       background: linear-gradient(90deg, transparent, #667eea, #764ba2, #f093fb, transparent);
       border-radius: 2px;
-      animation: lineExpand 2s ease-out 3.5s forwards;
+      animation: lineExpand 1.5s ease-out 2.5s forwards;
       scale: 0;
+      opacity: 0.8;
     }
 
     @keyframes lineExpand {
       to { 
         scale: 1;
-        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
       }
     }
 
     .subtitle {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: #a0aec0;
       font-weight: 300;
       opacity: 0;
-      animation: slideUp 1.5s ease-out 4s forwards;
-      letter-spacing: 2px;
+      animation: slideUp 1.2s ease-out 3s forwards;
+      letter-spacing: 1px;
       text-transform: uppercase;
+      margin-top: 10px;
     }
 
     @keyframes slideUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
@@ -304,23 +331,30 @@
     }
 
     .content-section {
-      margin: 70px 0;
+      margin: 60px 0;
     }
 
     .main-text {
-      font-size: 1.35rem;
-      line-height: 2.1;
+      font-size: 1.25rem;
+      line-height: 1.9;
       color: #e2e8f0;
       font-weight: 400;
       margin-bottom: 50px;
       text-align: left;
       opacity: 0;
-      animation: textReveal 2s ease-out 5s forwards;
+      animation: textReveal 1.8s ease-out 3.5s forwards;
       position: relative;
-      padding: 40px;
+      padding: 35px;
       background: rgba(255, 255, 255, 0.02);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .main-text:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
     }
 
     .main-text::before {
@@ -329,29 +363,30 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 2px;
+      height: 1px;
       background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-      border-radius: 20px 20px 0 0;
+      border-radius: 18px 18px 0 0;
+      opacity: 0.7;
     }
 
     .main-text::first-letter {
-      font-size: 5rem;
+      font-size: 4.5rem;
       font-family: 'Playfair Display', serif;
       float: left;
-      line-height: 4rem;
+      line-height: 3.5rem;
       margin: 8px 15px 0 0;
       background: linear-gradient(135deg, #667eea, #f093fb);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3));
+      filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.2));
     }
 
     @keyframes textReveal {
       from {
         opacity: 0;
-        transform: translateY(50px);
-        filter: blur(5px);
+        transform: translateY(30px);
+        filter: blur(3px);
       }
       to {
         opacity: 1;
@@ -362,18 +397,24 @@
 
     .quote-section {
       background: linear-gradient(135deg, 
-        rgba(102, 126, 234, 0.15) 0%,
-        rgba(118, 75, 162, 0.15) 50%,
-        rgba(240, 147, 251, 0.15) 100%);
-      backdrop-filter: blur(10px);
-      padding: 50px 40px;
-      border-radius: 25px;
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      margin: 60px 0;
+        rgba(102, 126, 234, 0.1) 0%,
+        rgba(118, 75, 162, 0.1) 50%,
+        rgba(240, 147, 251, 0.1) 100%);
+      backdrop-filter: blur(8px);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 50px 0;
       position: relative;
       opacity: 0;
-      animation: quoteDramaticEntry 2s ease-out 6s forwards;
+      animation: quoteDramaticEntry 1.8s ease-out 4.5s forwards;
       overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .quote-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
     }
 
     .quote-section::before {
@@ -383,8 +424,8 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
-      animation: shimmer 3s ease-in-out infinite;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.02), transparent);
+      animation: shimmer 6s ease-in-out infinite;
     }
 
     @keyframes shimmer {
@@ -395,22 +436,22 @@
     .quote-section::after {
       content: '"';
       font-family: 'Playfair Display', serif;
-      font-size: 8rem;
-      color: rgba(102, 126, 234, 0.2);
+      font-size: 6rem;
+      color: rgba(102, 126, 234, 0.15);
       position: absolute;
-      top: -20px;
-      left: 30px;
+      top: -10px;
+      left: 20px;
       pointer-events: none;
     }
 
     @keyframes quoteDramaticEntry {
       0% {
         opacity: 0;
-        transform: scale(0.8) rotateX(90deg);
+        transform: scale(0.9) rotateX(30deg);
       }
       70% {
-        opacity: 0.8;
-        transform: scale(1.05) rotateX(-5deg);
+        opacity: 0.9;
+        transform: scale(1.02) rotateX(-3deg);
       }
       100% {
         opacity: 1;
@@ -420,7 +461,7 @@
 
     .quote-text {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-style: italic;
       background: linear-gradient(135deg, #667eea, #f093fb);
       -webkit-background-clip: text;
@@ -430,26 +471,26 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
     .cta-section {
-      margin-top: 70px;
+      margin-top: 60px;
       opacity: 0;
-      animation: ctaBounce 1.5s ease-out 7s forwards;
+      animation: ctaBounce 1.2s ease-out 5.5s forwards;
     }
 
     @keyframes ctaBounce {
       0% {
         opacity: 0;
-        transform: scale(0.3) translateY(100px);
+        transform: scale(0.5) translateY(80px);
       }
       50% {
         opacity: 1;
-        transform: scale(1.1) translateY(-10px);
+        transform: scale(1.05) translateY(-5px);
       }
       70% {
-        transform: scale(0.95) translateY(5px);
+        transform: scale(0.98) translateY(2px);
       }
       100% {
         opacity: 1;
@@ -460,40 +501,37 @@
     .back-home {
       display: inline-flex;
       align-items: center;
-      gap: 15px;
-      padding: 20px 40px;
-      font-size: 1.2rem;
+      gap: 12px;
+      padding: 18px 36px;
+      font-size: 1.1rem;
       font-weight: 600;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
       background-size: 200% 200%;
       color: white;
       text-decoration: none;
-      border-radius: 60px;
+      border-radius: 50px;
       box-shadow: 
-        0 15px 35px rgba(102, 126, 234, 0.4),
-        0 5px 15px rgba(0, 0, 0, 0.1),
+        0 10px 25px rgba(102, 126, 234, 0.3),
+        0 5px 10px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
       text-transform: uppercase;
       letter-spacing: 1px;
-      animation: buttonPulse 2s ease-in-out infinite;
     }
 
-    @keyframes buttonPulse {
-      0%, 100% {
-        box-shadow: 
-          0 15px 35px rgba(102, 126, 234, 0.4),
-          0 5px 15px rgba(0, 0, 0, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      }
-      50% {
-        box-shadow: 
-          0 20px 40px rgba(102, 126, 234, 0.6),
-          0 10px 20px rgba(0, 0, 0, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.3);
-      }
+    .back-home:hover {
+      transform: translateY(-5px) scale(1.03);
+      background-position: 100% 0;
+      box-shadow: 
+        0 15px 35px rgba(102, 126, 234, 0.4),
+        0 10px 15px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .back-home:active {
+      transform: translateY(-2px) scale(1.01);
     }
 
     .back-home::before {
@@ -503,34 +541,21 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.8s;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.6s;
     }
 
     .back-home:hover::before {
       left: 100%;
     }
 
-    .back-home:hover {
-      transform: translateY(-8px) scale(1.05);
-      background-position: 100% 0;
-      box-shadow: 
-        0 25px 50px rgba(102, 126, 234, 0.6),
-        0 15px 25px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
-
-    .back-home:active {
-      transform: translateY(-3px) scale(1.02);
-    }
-
     .arrow {
-      transition: transform 0.4s ease;
-      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+      font-size: 1.3rem;
     }
 
     .back-home:hover .arrow {
-      transform: translateX(-8px) scale(1.2);
+      transform: translateX(-5px);
     }
 
     /* Responsive Design */
@@ -545,9 +570,10 @@
       }
       
       .main-text {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         text-align: center;
-        padding: 30px 20px;
+        padding: 25px 20px;
+        line-height: 1.8;
       }
       
       .main-text::first-letter {
@@ -560,17 +586,22 @@
       }
 
       .greeting {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+      }
+      
+      .quote-section {
+        padding: 30px;
       }
     }
 
     @media (max-width: 480px) {
       .about-card {
         padding: 40px 25px;
+        border-radius: 25px;
       }
       
       .name-title {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
       }
       
       .main-text::first-letter {
@@ -579,21 +610,28 @@
       }
 
       .back-home {
-        padding: 18px 35px;
+        padding: 16px 30px;
         font-size: 1rem;
+      }
+      
+      .greeting {
+        font-size: 1.3rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
       }
     }
 
-    /* Cursor trail effect */
-    .cursor-trail {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: radial-gradient(circle, rgba(102, 126, 234, 0.6), transparent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transition: transform 0.1s ease;
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Focus styles for accessibility */
+    a:focus, button:focus {
+      outline: 2px solid rgba(102, 126, 234, 0.8);
+      outline-offset: 3px;
     }
   </style>
 </head>
@@ -604,7 +642,7 @@
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
 
-  <div class="sparkles"></div>
+  <div class="particles" id="particles"></div>
 
   <div class="container">
     <div class="about-card">
@@ -640,22 +678,23 @@
   </div>
 
   <script>
-    // Create sparkles
-    function createSparkles() {
-      const sparklesContainer = document.querySelector('.sparkles');
+    // Create particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = Math.floor(window.innerWidth / 10);
       
-      setInterval(() => {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = Math.random() * 100 + '%';
-        sparkle.style.top = Math.random() * 100 + '%';
-        sparkle.style.animationDelay = Math.random() * 3 + 's';
-        sparklesContainer.appendChild(sparkle);
-        
-        setTimeout(() => {
-          sparkle.remove();
-        }, 3000);
-      }, 300);
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.width = (Math.random() * 3 + 1) + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.opacity = Math.random() * 0.5 + 0.1;
+        particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+        particle.style.animationDelay = (Math.random() * 5) + 's';
+        particlesContainer.appendChild(particle);
+      }
     }
 
     // Enhanced parallax with mouse movement
@@ -665,9 +704,8 @@
       const y = (e.clientY / window.innerHeight) * 2 - 1;
       
       orbs.forEach((orb, index) => {
-        const speed = (index + 1) * 15;
-        const rotateSpeed = (index + 1) * 5;
-        orb.style.transform = `translate(${x * speed}px, ${y * speed}px) rotate(${x * rotateSpeed}deg)`;
+        const speed = (index + 1) * 10;
+        orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
       });
 
       // Subtle card tilt effect
@@ -676,7 +714,7 @@
       const cardX = e.clientX - rect.left - rect.width / 2;
       const cardY = e.clientY - rect.top - rect.height / 2;
       
-      card.style.transform = `perspective(1000px) rotateY(${cardX / 50}deg) rotateX(${-cardY / 50}deg)`;
+      card.style.transform = `perspective(1000px) rotateY(${cardX / 80}deg) rotateX(${-cardY / 80}deg) translateY(0) scale(1)`;
     });
 
     // Reset card position when mouse leaves
@@ -687,33 +725,35 @@
 
     // Initialize effects
     document.addEventListener('DOMContentLoaded', function() {
-      createSparkles();
+      createParticles();
       
-      // Add smooth scrolling
-      document.documentElement.style.scrollBehavior = 'smooth';
+      // Add typing effect for quote
+      const quote = document.querySelector('.quote-text');
+      const quoteText = quote.textContent;
+      quote.textContent = '';
       
-      // Add entrance sound effect simulation (visual feedback)
       setTimeout(() => {
-        document.body.style.animation = 'none';
-      }, 8000);
+        let i = 0;
+        const typeWriter = () => {
+          if (i < quoteText.length) {
+            quote.textContent += quoteText.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+          }
+        };
+        typeWriter();
+      }, 5000);
     });
 
-    // Add typing effect for quote
-    const quote = document.querySelector('.quote-text');
-    const quoteText = quote.textContent;
-    quote.textContent = '';
-    
-    setTimeout(() => {
-      let i = 0;
-      const typeWriter = () => {
-        if (i < quoteText.length) {
-          quote.textContent += quoteText.charAt(i);
-          i++;
-          setTimeout(typeWriter, 50);
-        }
-      };
-      typeWriter();
-    }, 6500);
+    // Smooth scroll to top when page loads (for browsers that remember scroll position)
+    window.addEventListener('load', function() {
+      if (window.scrollY > 0) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
   </script>
 </body>
 </html>
