@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | Saroj Japrel</title>
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -16,139 +15,34 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
+      background-color: #f8f4e8;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4c9a6' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E"),
+        linear-gradient(to bottom, rgba(248,244,232,0.9), rgba(248,244,232,0.9));
+      color: #3a3226;
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.7;
+      font-weight: 300;
     }
 
-    /* Cosmic background with softer animation */
-    .cosmic-bg {
+    /* Ink Wash Effect */
+    .ink-wash {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.1) 0%, transparent 50%),
-        linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      animation: cosmicShift 30s ease-in-out infinite;
-      z-index: -2;
-    }
-
-    @keyframes cosmicShift {
-      0%, 100% { 
-        filter: hue-rotate(0deg) brightness(1); 
-        background-position: 0% 0%;
-      }
-      25% { 
-        filter: hue-rotate(5deg) brightness(1.02); 
-        background-position: 2% 2%;
-      }
-      50% { 
-        filter: hue-rotate(-5deg) brightness(0.98); 
-        background-position: -2% -2%;
-      }
-      75% { 
-        filter: hue-rotate(3deg) brightness(1.01); 
-        background-position: 1% -1%;
-      }
-    }
-
-    /* Floating orbs - more subtle */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(15px);
-      animation: float 12s ease-in-out infinite;
+        radial-gradient(circle at 30% 40%, rgba(87, 76, 63, 0.08) 0%, transparent 30%),
+        radial-gradient(circle at 70% 60%, rgba(87, 76, 63, 0.05) 0%, transparent 30%);
       pointer-events: none;
-      opacity: 0.6;
-      mix-blend-mode: soft-light;
+      z-index: 0;
     }
 
-    .orb1 {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-      top: 15%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .orb2 {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(45deg, #a8edea, #fed6e3);
-      top: 70%;
-      right: 15%;
-      animation-delay: -3s;
-    }
-
-    .orb3 {
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(45deg, #667eea, #764ba2);
-      bottom: 15%;
-      left: 75%;
-      animation-delay: -6s;
-    }
-
-    @keyframes float {
-      0%, 100% { 
-        transform: translateY(0px) translateX(0px) scale(1);
-      }
-      33% { 
-        transform: translateY(-20px) translateX(15px) scale(1.05);
-      }
-      66% { 
-        transform: translateY(15px) translateX(-10px) scale(0.95);
-      }
-    }
-
-    /* Subtle particle effect */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      animation: particleFall linear infinite;
-    }
-
-    @keyframes particleFall {
-      0% {
-        transform: translateY(-100vh) translateX(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) translateX(100px);
-        opacity: 0;
-      }
-    }
-
+    /* Philosophical Container */
     .container {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -156,500 +50,228 @@
       padding: 40px 20px;
     }
 
+    /* Ancient Paper Card */
     .about-card {
-      background: rgba(15, 15, 25, 0.7);
-      backdrop-filter: blur(20px) saturate(160%);
-      border: 1px solid;
-      border-image: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.3) 0%,
-        rgba(255, 255, 255, 0.1) 50%,
-        rgba(255, 255, 255, 0.3) 100%) 1;
-      padding: 80px 60px;
-      border-radius: 30px;
+      background: #fffaf0;
+      background-image: 
+        linear-gradient(to bottom, rgba(255,250,240,0.8), rgba(255,250,240,0.8)),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4c9a6' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+      border: 1px solid #d4c9a6;
+      padding: 60px 50px;
+      border-radius: 2px;
       box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.3),
-        0 0 60px rgba(120, 119, 198, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      max-width: 900px;
+        0 10px 30px rgba(58, 50, 38, 0.1),
+        0 1px 3px rgba(58, 50, 38, 0.1);
+      max-width: 800px;
       text-align: center;
-      transform: translateY(50px);
-      opacity: 0;
-      animation: dramaticEntrance 1.8s ease-out 0.5s forwards;
       position: relative;
       overflow: hidden;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .about-card:hover {
-      box-shadow: 
-        0 40px 80px rgba(0, 0, 0, 0.4),
-        0 0 100px rgba(120, 119, 198, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
     .about-card::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 0deg, transparent, rgba(120, 119, 198, 0.05), transparent, rgba(255, 119, 198, 0.05), transparent);
-      animation: rotate 30s linear infinite;
-      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #8c7b6b, #d4c9a6, #8c7b6b);
     }
 
-    .about-card::after {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      right: 2px;
-      bottom: 2px;
-      background: rgba(10, 10, 15, 0.85);
-      border-radius: 28px;
-      z-index: -1;
-    }
-
-    @keyframes rotate {
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes dramaticEntrance {
-      0% {
-        transform: translateY(80px) scale(0.95);
-        opacity: 0;
-        filter: blur(5px);
-      }
-      60% {
-        transform: translateY(-5px) scale(1.01);
-        opacity: 0.9;
-        filter: blur(1px);
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-        filter: blur(0);
-      }
-    }
-
+    /* Profile Section */
     .profile-section {
-      margin-bottom: 60px;
+      margin-bottom: 50px;
       position: relative;
     }
 
     .greeting {
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.8rem;
-      color: #a8edea;
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeInScale 1.2s ease-out 1.5s forwards;
-      text-shadow: 0 0 15px rgba(168, 237, 234, 0.3);
+      color: #8c7b6b;
+      margin-bottom: 15px;
+      font-weight: 500;
     }
 
     .name-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 4.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradientShift 12s ease-in-out infinite, titleGlow 2s ease-out 2s forwards;
-      margin-bottom: 20px;
+      color: #3a3226;
+      margin-bottom: 10px;
       position: relative;
-      text-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
-      line-height: 1.2;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    @keyframes titleGlow {
-      to {
-        text-shadow: 0 0 25px rgba(102, 126, 234, 0.4);
-      }
-    }
-
-    @keyframes fadeInScale {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
+      display: inline-block;
     }
 
     .name-title::after {
       content: '';
       position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #667eea, #764ba2, #f093fb, transparent);
-      border-radius: 2px;
-      animation: lineExpand 1.5s ease-out 2.5s forwards;
-      scale: 0;
-      opacity: 0.8;
-    }
-
-    @keyframes lineExpand {
-      to { 
-        scale: 1;
-        box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
-      }
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #8c7b6b, transparent);
     }
 
     .subtitle {
-      font-size: 1.3rem;
-      color: #a0aec0;
-      font-weight: 300;
-      opacity: 0;
-      animation: slideUp 1.2s ease-out 3s forwards;
-      letter-spacing: 1px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #8c7b6b;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
+    /* Content */
     .content-section {
-      margin: 60px 0;
+      margin: 50px 0;
     }
 
     .main-text {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       line-height: 1.9;
-      color: #e2e8f0;
-      font-weight: 400;
-      margin-bottom: 50px;
+      color: #3a3226;
       text-align: left;
-      opacity: 0;
-      animation: textReveal 1.8s ease-out 3.5s forwards;
+      padding: 0 10px;
       position: relative;
-      padding: 35px;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s ease;
-    }
-
-    .main-text:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: translateY(-3px);
-    }
-
-    .main-text::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-      border-radius: 18px 18px 0 0;
-      opacity: 0.7;
     }
 
     .main-text::first-letter {
-      font-size: 4.5rem;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
       float: left;
-      line-height: 3.5rem;
-      margin: 8px 15px 0 0;
-      background: linear-gradient(135deg, #667eea, #f093fb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.2));
+      line-height: 2.5rem;
+      margin-right: 15px;
+      color: #8c7b6b;
+      margin-top: 5px;
     }
 
-    @keyframes textReveal {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-        filter: blur(3px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
+    /* Philosophical Quote */
     .quote-section {
-      background: linear-gradient(135deg, 
-        rgba(102, 126, 234, 0.1) 0%,
-        rgba(118, 75, 162, 0.1) 50%,
-        rgba(240, 147, 251, 0.1) 100%);
-      backdrop-filter: blur(8px);
-      padding: 40px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      margin: 50px 0;
+      border-top: 1px solid #d4c9a6;
+      border-bottom: 1px solid #d4c9a6;
+      padding: 30px 0;
+      margin: 40px 0;
       position: relative;
-      opacity: 0;
-      animation: quoteDramaticEntry 1.8s ease-out 4.5s forwards;
-      overflow: hidden;
-      transition: all 0.4s ease;
-    }
-
-    .quote-section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
-    }
-
-    .quote-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.02), transparent);
-      animation: shimmer 6s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    .quote-section::after {
-      content: '"';
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
-      color: rgba(102, 126, 234, 0.15);
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      pointer-events: none;
-    }
-
-    @keyframes quoteDramaticEntry {
-      0% {
-        opacity: 0;
-        transform: scale(0.9) rotateX(30deg);
-      }
-      70% {
-        opacity: 0.9;
-        transform: scale(1.02) rotateX(-3deg);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) rotateX(0deg);
-      }
     }
 
     .quote-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
       font-style: italic;
-      background: linear-gradient(135deg, #667eea, #f093fb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 600;
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      line-height: 1.7;
+      font-weight: 500;
+      color: #3a3226;
+      line-height: 1.8;
     }
 
+    .quote-text::before,
+    .quote-text::after {
+      content: '"';
+      color: #8c7b6b;
+      font-size: 1.5rem;
+    }
+
+    /* Back Button */
     .cta-section {
-      margin-top: 60px;
-      opacity: 0;
-      animation: ctaBounce 1.2s ease-out 5.5s forwards;
-    }
-
-    @keyframes ctaBounce {
-      0% {
-        opacity: 0;
-        transform: scale(0.5) translateY(80px);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.05) translateY(-5px);
-      }
-      70% {
-        transform: scale(0.98) translateY(2px);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
+      margin-top: 50px;
     }
 
     .back-home {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 36px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-      background-size: 200% 200%;
-      color: white;
+      display: inline-block;
+      padding: 12px 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #8c7b6b;
       text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 
-        0 10px 25px rgba(102, 126, 234, 0.3),
-        0 5px 10px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      overflow: hidden;
-      text-transform: uppercase;
+      border: 1px solid #d4c9a6;
+      border-radius: 2px;
+      transition: all 0.3s ease;
       letter-spacing: 1px;
     }
 
     .back-home:hover {
-      transform: translateY(-5px) scale(1.03);
-      background-position: 100% 0;
-      box-shadow: 
-        0 15px 35px rgba(102, 126, 234, 0.4),
-        0 10px 15px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      background: rgba(140, 123, 107, 0.1);
+      border-color: #8c7b6b;
     }
 
-    .back-home:active {
-      transform: translateY(-2px) scale(1.01);
-    }
-
-    .back-home::before {
-      content: '';
+    /* Ink Blot Decorations */
+    .ink-blot {
       position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.6s;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: -1;
     }
 
-    .back-home:hover::before {
-      left: 100%;
+    .ink-blot-1 {
+      top: 10%;
+      right: 10%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #3a3226, transparent 70%);
+      filter: blur(10px);
     }
 
-    .arrow {
-      transition: transform 0.3s ease;
-      font-size: 1.3rem;
-    }
-
-    .back-home:hover .arrow {
-      transform: translateX(-5px);
+    .ink-blot-2 {
+      bottom: 15%;
+      left: 15%;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #3a3226, transparent 70%);
+      filter: blur(8px);
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
       .about-card {
-        padding: 50px 35px;
-        margin: 20px;
+        padding: 50px 30px;
       }
       
       .name-title {
-        font-size: 3rem;
+        font-size: 2.2rem;
       }
       
       .main-text {
-        font-size: 1.1rem;
-        text-align: center;
-        padding: 25px 20px;
-        line-height: 1.8;
+        font-size: 1rem;
       }
       
       .main-text::first-letter {
-        font-size: 3.5rem;
-        line-height: 3rem;
+        font-size: 2.8rem;
       }
       
       .quote-text {
-        font-size: 1.3rem;
-      }
-
-      .greeting {
-        font-size: 1.5rem;
-      }
-      
-      .quote-section {
-        padding: 30px;
+        font-size: 1.2rem;
       }
     }
 
     @media (max-width: 480px) {
       .about-card {
-        padding: 40px 25px;
-        border-radius: 25px;
+        padding: 40px 20px;
       }
       
       .name-title {
-        font-size: 2.4rem;
-      }
-      
-      .main-text::first-letter {
-        font-size: 3rem;
-        line-height: 2.5rem;
-      }
-
-      .back-home {
-        padding: 16px 30px;
-        font-size: 1rem;
+        font-size: 1.8rem;
       }
       
       .greeting {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
       }
       
-      .subtitle {
-        font-size: 1.1rem;
+      .main-text::first-letter {
+        font-size: 2.2rem;
       }
-    }
-
-    /* Smooth scroll behavior */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Focus styles for accessibility */
-    a:focus, button:focus {
-      outline: 2px solid rgba(102, 126, 234, 0.8);
-      outline-offset: 3px;
     }
   </style>
 </head>
 <body>
-  <div class="cosmic-bg"></div>
-  
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
-
-  <div class="particles" id="particles"></div>
+  <div class="ink-wash"></div>
+  <div class="ink-blot ink-blot-1"></div>
+  <div class="ink-blot ink-blot-2"></div>
 
   <div class="container">
     <div class="about-card">
       <div class="profile-section">
-        <p class="greeting">Hello, Universe ✨</p>
+        <p class="greeting">Hello, Seeker</p>
         <h1 class="name-title">About Me</h1>
-        <p class="subtitle">A Journey of Curiosity & Wonder</p>
+        <p class="subtitle">A Journey of Understanding</p>
       </div>
 
       <div class="content-section">
@@ -670,89 +292,27 @@
 
       <div class="cta-section">
         <a href="index.html" class="back-home">
-          <span class="arrow">←</span>
-          <span>Back to Home</span>
+          ← Return Home
         </a>
       </div>
     </div>
   </div>
 
   <script>
-    // Create particles
-    function createParticles() {
-      const particlesContainer = document.getElementById('particles');
-      const particleCount = Math.floor(window.innerWidth / 10);
+    // Add subtle paper texture animation
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
       
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.width = (Math.random() * 3 + 1) + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.opacity = Math.random() * 0.5 + 0.1;
-        particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
-        particle.style.animationDelay = (Math.random() * 5) + 's';
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    // Enhanced parallax with mouse movement
-    document.addEventListener('mousemove', function(e) {
-      const orbs = document.querySelectorAll('.orb');
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
-      
-      orbs.forEach((orb, index) => {
-        const speed = (index + 1) * 10;
-        orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-      });
-
-      // Subtle card tilt effect
-      const card = document.querySelector('.about-card');
-      const rect = card.getBoundingClientRect();
-      const cardX = e.clientX - rect.left - rect.width / 2;
-      const cardY = e.clientY - rect.top - rect.height / 2;
-      
-      card.style.transform = `perspective(1000px) rotateY(${cardX / 80}deg) rotateX(${-cardY / 80}deg) translateY(0) scale(1)`;
+      document.querySelector('.about-card').style.transform = `
+        rotateX(${y * 0.5}deg)
+        rotateY(${x * 0.5}deg)
+      `;
     });
 
-    // Reset card position when mouse leaves
-    document.addEventListener('mouseleave', function() {
-      const card = document.querySelector('.about-card');
-      card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
-    });
-
-    // Initialize effects
-    document.addEventListener('DOMContentLoaded', function() {
-      createParticles();
-      
-      // Add typing effect for quote
-      const quote = document.querySelector('.quote-text');
-      const quoteText = quote.textContent;
-      quote.textContent = '';
-      
-      setTimeout(() => {
-        let i = 0;
-        const typeWriter = () => {
-          if (i < quoteText.length) {
-            quote.textContent += quoteText.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
-          }
-        };
-        typeWriter();
-      }, 5000);
-    });
-
-    // Smooth scroll to top when page loads (for browsers that remember scroll position)
-    window.addEventListener('load', function() {
-      if (window.scrollY > 0) {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }
+    // Reset position when mouse leaves
+    document.addEventListener('mouseleave', () => {
+      document.querySelector('.about-card').style.transform = 'none';
     });
   </script>
 </body>
