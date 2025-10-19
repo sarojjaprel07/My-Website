@@ -1519,12 +1519,12 @@
   // Initialize counters with animation
   function initializeCounters() {
     // Simulate automatic view count increase
-    const randomViews = Math.floor(Math.random() * 100) + 10;
+    const randomViews = Math.floor(Math.random() * 20) + 2;
     views = randomViews;
     localStorage.setItem('poemViews', views);
     
     // Simulate automatic like count
-    const randomLikes = Math.floor(views * 0.3);
+    const randomLikes = Math.floor(views * 0.1);
     likes = randomLikes;
     localStorage.setItem('poemLikes', likes);
     
