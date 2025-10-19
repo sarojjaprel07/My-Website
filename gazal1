@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>गजल</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root {
+    --primary: #3B82F6;
+    --primary-light: #93C5FD;
+    --secondary: #10B981;
+    --accent: #FFB703;
+    --text: #333333;
+    --light: #F4F4F9;
+    --bg: #F4F4F9;
+    --card: #FFFFFF;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --radius: 12px;
+    --glass: rgba(255, 255, 255, 0.1);
+    --overlay: rgba(26, 26, 46, 0.9);
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --header-bg: rgba(244, 244, 249, 0.95);
+    --nav-link: #333333;
+    --line-height: 1.7;
+    --paragraph-spacing: 1.2rem;
+    --subheading: #6B7280;
+    --muted: #9CA3AF;
+    --poems: #14B8A6;
+    --paper-bg: #f4f1e8;
+    --paper-aged: #e8e0d0;
+    --ink-dark: #2c1810;
+    --ink-medium: #4a3426;
+    --ink-light: #6b4f3a;
+    --pen-body: #8b4513;
+    --pen-tip: #2f1b14;
+    --text-shadow: rgba(0, 0, 0, 0.3);
+    --btn-bg: #8b4513;
+    --btn-hover-bg: #a0522d;
+    --btn-color: #f4f1e8;
+    --btn-shadow: rgba(139,69,19,0.4);
+    --share-color: #6b4f3a;
+    --share-hover: #8b4513;
+    --date-color: #8b4513;
+    --like-color: #e74c3c;
+    --comment-color: #3498db;
+    --view-color: #9b59b6;
+  }
+
+  .dark-mode {
+    --primary: #60A5FA;
+    --primary-light: #93C5FD;
+    --secondary: #34D399;
+    --accent: #FBBF24;
+    --text: #F3F4F6;
+    --light: #1F2937;
+    --bg: #111827;
+    --card: #1F2937;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    --glass: rgba(31, 41, 55, 0.5);
+    --overlay: rgba(15, 15, 15, 0.95);
+    --header-bg: rgba(17, 24, 39, 0.98);
+    --nav-link: #F9FAFB;
+    --subheading: #D1D5DB;
+    --muted: #9CA3AF;
+    --poems: #2DD4BF;
+    --paper-bg: #1a1a2e;
+    --paper-aged: #16213e;
+    --ink-dark: #F3F4F6;
+    --ink-medium: #D1D5DB;
+    --ink-light: #9CA3AF;
+    --pen-body: #a0522d;
+    --pen-tip: #8b4513;
+    --btn-bg: #a0522d;
+    --btn-hover-bg: #8b4513;
+    --btn-color: #F3F4F6;
+    --share-color: #9CA3AF;
+    --share-hover: #D1D5DB;
+    --date-color: #9CA3AF;
+    --like-color: #e74c3c;
+    --comment-color: #3498db;
+    --view-color: #9b59b6;
+  }
+
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: var(--line-height);
+    transition: var(--transition);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow-x: hidden;
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(255, 200, 150, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(150, 200, 255, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+      linear-gradient(135deg, var(--bg) 0%, var(--light) 100%);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--primary);
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+  }
+
+  p {
+    margin-bottom: var(--paragraph-spacing);
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+    color: var(--text);
+  }
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  a:hover {
+    color: var(--secondary);
+  }
+
+  /* === Enhanced Modern Header === */
+  .modern-header {
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  }
+
+  .header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo {
+    width: 55px;
+    height: 55px;
+    background: var(--gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: 'Cormorant Garamond', serif;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0)
+    );
+    transform: rotate(30deg);
+    transition: var(--transition);
+  }
+
+  .logo:hover {
+    transform: rotate(15deg) scale(1.05);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+
+  .logo:hover::before {
+    transform: rotate(45deg) translateY(100%);
+  }
+
+  .site-title-container h1 {
+    font-size: 1.9rem;
+    margin: 0;
+    line-height: 1.2;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .site-title-container p {
+    font-size: 0.9rem;
+    color: var(--subheading);
+    margin: 0;
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .main-nav {
+    display: flex;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+  }
+
+  .nav-item .nav-link {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--nav-link);
+    border-radius: var(--radius);
+    transition: var(--transition);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-item .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient);
+    transform: translateY(5px);
+    opacity: 0;
+    transition: var(--transition);
+  }
+
+  .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition);
+    transform: translateY(100%);
+  }
+
+  .nav-item .nav-link:hover::before {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .nav-item .nav-link:hover::after {
+    opacity: 0.1;
+    transform: translateY(0);
+  }
+
+  .nav-item .nav-link:hover {
+    color: var(--secondary);
+    transform: translateY(-2px);
+  }
+
+  .nav-item .nav-link.active {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--primary);
+    box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.2);
+  }
+
+  .nav-item .nav-link.active::before {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .header-btn {
+    padding: 0.7rem 1.4rem;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .header-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition);
+    z-index: -1;
+  }
+
+  .header-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0;
+    z-index: -2;
+    transition: var(--transition);
+  }
+
+  .header-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
+  }
+
+  .header-btn:hover::after {
+    opacity: 1;
+  }
+
+  .header-btn.outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+  }
+
+  .header-btn.outline:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  /* Enhanced Menu toggle button */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: var(--glass);
+    border: 2px solid var(--primary-light);
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .menu-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -1;
+  }
+
+  .menu-toggle:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .menu-toggle:hover::before {
+    opacity: 0.1;
+  }
+
+  .menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: var(--transition);
+    transform-origin: center;
+    margin: 2.5px 0;
+  }
+
+  .menu-toggle span:nth-child(2) {
+    width: 18px;
+    margin-left: auto;
+  }
+
+  .menu-toggle.active {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .menu-toggle.active span {
+    background: white;
+    margin: 0;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Enhanced Dark mode toggle button */
+  .dark-mode-toggle {
+    position: relative;
+    width: 60px;
+    height: 32px;
+    background: var(--primary-light);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid var(--primary-light);
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark-mode-toggle:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+  }
+
+  .dark-mode-toggle::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: white;
+    transition: var(--transition);
+    left: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark-mode .dark-mode-toggle {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+
+  .dark-mode .dark-mode-toggle::before {
+    transform: translateX(27px);
+  }
+
+  .dark-mode-toggle i {
+    position: absolute;
+    font-size: 14px;
+    color: white;
+    z-index: 1;
+    transition: var(--transition);
+  }
+
+  .dark-mode-toggle .fa-sun {
+    left: 8px;
+    opacity: 0;
+  }
+
+  .dark-mode-toggle .fa-moon {
+    right: 8px;
+    opacity: 1;
+  }
+
+  .dark-mode .dark-mode-toggle .fa-sun {
+    opacity: 1;
+  }
+
+  .dark-mode .dark-mode-toggle .fa-moon {
+    opacity: 0;
+  }
+
+  /* Enhanced Menu dropdown for all devices */
+  .menu-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    min-width: 250px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: var(--transition);
+    margin-top: 15px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+  }
+
+  .dark-mode .menu-dropdown {
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menu-dropdown .nav-list {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .menu-dropdown .nav-item {
+    width: 100%;
+  }
+
+  .menu-dropdown .nav-link {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    background: rgba(59, 130, 246, 0.05);
+  }
+
+  .menu-dropdown .nav-link:hover {
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  /* Completely New Poem Background */
+  .poem-background {
+    position: relative;
+    max-width: min(900px, 90vw);
+    width: 100%;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+      0 15px 35px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: 
+      /* Paper texture */
+      linear-gradient(135deg, var(--paper-bg) 0%, var(--paper-aged) 100%),
+      /* Subtle emotional gradient */
+      radial-gradient(circle at 20% 80%, rgba(255, 200, 150, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(150, 200, 255, 0.2) 0%, transparent 50%),
+      /* Emotional overlay */
+      linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .poem-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      /* Emotional watercolor effect */
+      radial-gradient(circle at 30% 30%, rgba(255, 230, 200, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(200, 230, 255, 0.2) 0%, transparent 50%),
+      /* Subtle texture */
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .poem-background::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .poem-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 860px;
+    color: var(--ink-dark);
+    font-weight: 400;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    line-height: 1.8;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  /* Poem heading style */
+  .poem-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--ink-dark);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    line-height: 1.3;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  .poem-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 3px;
+  }
+  
+  /* Poem paragraphs */
+  .poem-content p {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Publish date */
+  .publish-date {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: var(--date-color);
+    margin: 2rem 0;
+    padding: 1rem;
+    border-top: 1px dashed rgba(139, 69, 19, 0.3);
+    border-bottom: 1px dashed rgba(139, 69, 19, 0.3);
+  }
+  
+  /* Share button container */
+  .share-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 1.8rem;
+    border-top: 1px dashed rgba(139, 69, 19, 0.3);
+    width: 100%;
+    clear: both;
+  }
+  
+  .share-button {
+    background: transparent;
+    border: 2px solid var(--share-color);
+    color: var(--share-color);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    box-shadow: 0 2px 8px rgba(107, 79, 58, 0.15);
+  }
+  
+  .share-button:hover {
+    background-color: var(--share-color);
+    color: var(--paper-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 79, 58, 0.25);
+  }
+  
+  .share-button:active {
+    transform: translateY(0);
+  }
+  
+  /* Footer */
+  .page-footer {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: var(--ink-medium);
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    margin-top: 40px;
+  }
+  
+  .page-footer a {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  
+  .page-footer a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* Share options modal */
+  .share-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .share-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-content {
+    background: var(--paper-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: min(500px, 90vw);
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+  }
+  
+  .share-modal.active .modal-content {
+    transform: translateY(0);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+  
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--ink-dark);
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--ink-medium);
+    transition: color 0.2s;
+  }
+  
+  .close-modal:hover {
+    color: var(--ink-dark);
+  }
+  
+  .share-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+  }
+  
+  .share-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0.8rem;
+    border-radius: 8px;
+    width: 90px;
+  }
+  
+  .share-option:hover {
+    background: rgba(212, 196, 168, 0.3);
+  }
+  
+  .share-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: white;
+  }
+  
+  .facebook-bg { background: #3b5998; }
+  .twitter-bg { background: #1da1f2; }
+  .whatsapp-bg { background: #25d366; }
+  .copy-bg { background: var(--btn-bg); }
+  
+  .share-label {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-dark);
+    text-align: center;
+  }
+  
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--paper-bg);
+    color: var(--ink-dark);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.4s ease;
+    font-size: 0.9rem;
+  }
+  
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  
+  /* Enhanced Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.1rem 2rem;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    letter-spacing: 0.5px;
+  }
+
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--primary);
+    transition: var(--transition);
+    z-index: -1;
+    border-radius: 50px;
+    opacity: 0.9;
+  }
+
+  .btn:hover::before {
+    width: 100%;
+  }
+
+  .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary);
+    color: white;
+  }
+
+  /* Back to Top Button */
+  #backToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    background: var(--gradient);
+    color: white;
+    border: none;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.2rem;
+  }
+
+  #backToTop:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Social Interaction Section */
+  .social-interaction {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-top: 1px dashed rgba(139, 69, 19, 0.3);
+    border-bottom: 1px dashed rgba(139, 69, 19, 0.3);
+  }
+
+  .interaction-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0.8rem 1.2rem;
+    border-radius: var(--radius);
+    color: var(--ink-medium);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .interaction-btn:hover {
+    background: rgba(212, 196, 168, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .interaction-btn.liked {
+    color: var(--like-color);
+  }
+
+  .interaction-btn i {
+    font-size: 1.4rem;
+    transition: var(--transition);
+  }
+
+  .interaction-btn:hover i {
+    transform: scale(1.1);
+  }
+
+  .interaction-count {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  /* Comments Section */
+  .comments-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-top: 1px dashed rgba(139, 69, 19, 0.3);
+  }
+
+  .comments-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--ink-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .comment-input {
+    background: rgba(212, 196, 168, 0.1);
+    border: 1px solid rgba(139, 129, 108, 0.3);
+    border-radius: var(--radius);
+    padding: 1rem 1.2rem;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-dark);
+    resize: vertical;
+    min-height: 100px;
+    transition: var(--transition);
+  }
+
+  .comment-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+
+  .comment-submit {
+    align-self: flex-end;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .comment-submit:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+  }
+
+  .comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .comment {
+    background: rgba(212, 196, 168, 0.1);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    border-left: 3px solid var(--primary);
+  }
+
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .comment-author {
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .comment-date {
+    font-size: 0.8rem;
+    color: var(--date-color);
+  }
+
+  .comment-text {
+    color: var(--ink-dark);
+    line-height: 1.6;
+  }
+
+  /* Emotional Background Elements */
+  .emotional-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .floating-heart {
+    position: absolute;
+    color: var(--primary);
+    font-size: 1.5rem;
+    opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+  }
+
+  .floating-heart:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .floating-heart:nth-child(2) {
+    top: 20%;
+    right: 15%;
+    animation-delay: 2s;
+  }
+
+  .floating-heart:nth-child(3) {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 4s;
+  }
+
+  .floating-heart:nth-child(4) {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 6s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+
+  /* Automatic Counter Styles */
+  .counter {
+    font-weight: 700;
+    color: var(--primary);
+    transition: all 0.5s ease;
+  }
+
+  .counter.animating {
+    animation: pulse 0.5s ease;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    body {
+      padding: 0;
+    }
+    
+    .poem-background {
+      padding: 30px 20px;
+      max-width: 95vw;
+    }
+    
+    .share-options {
+      gap: 0.5rem;
+    }
+    
+    .share-option {
+      width: 80px;
+      padding: 0.6rem;
+    }
+    
+    .share-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.4rem;
+    }
+    
+    .modal-content {
+      padding: 1.2rem;
+    }
+    
+    .modal-title {
+      font-size: 1.2rem;
+    }
+    
+    .modern-header {
+      padding: 0.8rem 1rem;
+    }
+    
+    .site-title-container h1 {
+      font-size: 1.5rem;
+    }
+    
+    .site-title-container p {
+      font-size: 0.8rem;
+    }
+    
+    .logo {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+    
+    .social-interaction {
+      gap: 1rem;
+      padding: 1rem;
+    }
+    
+    .interaction-btn {
+      padding: 0.6rem 0.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .poem-background {
+      padding: 25px 15px;
+    }
+    
+    .share-option {
+      width: 70px;
+    }
+    
+    .share-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+    }
+    
+    .share-label {
+      font-size: 0.75rem;
+    }
+    
+    .site-title-container h1 {
+      font-size: 1.3rem;
+    }
+    
+    .site-title-container p {
+      display: none;
+    }
+    
+    .social-interaction {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Emotional Background Elements -->
+<div class="emotional-bg">
+  <div class="floating-heart">❤️</div>
+  <div class="floating-heart">💙</div>
+  <div class="floating-heart">💚</div>
+  <div class="floating-heart">💛</div>
+</div>
+
+<!-- Enhanced Modern Header -->
+<header class="modern-header">
+  <div class="header-container">
+    <div class="logo-container">
+      <div class="logo">ES</div>
+      <div class="site-title-container">
+        <h1>Experience with Saroj</h1>
+        <p>Exploring ...</p>
+      </div>
+    </div>
+    
+    <div class="nav-container">
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </button>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      
+      <!-- Enhanced Menu Dropdown -->
+      <div class="menu-dropdown" id="menuDropdown">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-user"></i> About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-book"></i> Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- New Poem Background -->
+<main class="poem-background" role="main" aria-label="गजल">
+  <article class="poem-content" lang="ne">
+    <h1 class="poem-title">गजल</h1>
+    
+    <p>कोही खुला आकाश कोही घर किन बन्छ<br />
+     पुरा हुन नसक्ने यो रहर किन बन्छ।<br /><br />
+      
+     मान्छे आनन्द, खुसी, शान्तिकै लागि भागिरहँदा<br />
+      तर फेरि खुसी नै हराएको अशान्त सहर किन बन्छ।<br /><br />
+
+     
+      हिजोसम्म कसैको  पछि भौतारिरहेको यो मन <br />
+      विश्वास  गुमाइसकेपछि  पत्थर  किन बन्छ।।<br /><br />
+
+      यहाँ,  सबै  स्वतन्त्र भएर उड्न चाहन्छन्<br />
+       तर एक्लो हुँदाखेरि त्यही उडान डर किन बन्छ।।<br /><br />
+
+        हर कोही सफलता पाउन प्रयास गरिरहँदा <br />
+      त्यही  प्रयास पनि अमृत र जहर  किन बन्छ। ।।<br /><br />
+    
+    <div class="publish-date">Published: 2025-08-01</div>
+    
+    <!-- Social Interaction Section -->
+    <div class="social-interaction">
+      <button class="interaction-btn" id="likeBtn">
+        <i class="far fa-heart"></i>
+        <span class="interaction-count">Likes: <span class="counter" id="likeCount">0</span></span>
+      </button>
+      
+      <button class="interaction-btn" id="commentBtn">
+        <i class="far fa-comment"></i>
+        <span class="interaction-count">Comments: <span class="counter" id="commentCount">0</span></span>
+      </button>
+      
+      <div class="interaction-btn">
+        <i class="far fa-eye"></i>
+        <span class="interaction-count">Views: <span class="counter" id="viewCount">0</span></span>
+      </div>
+    </div>
+    
+    <!-- Comments Section -->
+    <div class="comments-section" id="commentsSection">
+      <h3 class="comments-title">Comments</h3>
+      
+      <form class="comment-form" id="commentForm">
+        <textarea class="comment-input" placeholder="Share your thoughts about this poem..." required></textarea>
+        <button type="submit" class="comment-submit">Post Comment</button>
+      </form>
+      
+      <div class="comments-list" id="commentsList">
+        <!-- Comments will be dynamically added here -->
+      </div>
+    </div>
+    
+    <div class="share-container">
+      <button class="share-button" id="shareBtn">
+        <i class="fas fa-share-alt"></i> Share 
+      </button>
+    </div>
+  </article>
+</main>
+
+<div class="page-footer">
+  © 2025 Experience with Saroj | All Rights Reserved
+</div>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="btn" title="Back to Top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Share Modal -->
+<div class="share-modal" id="shareModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Share this Poem</h3>
+      <button class="close-modal" id="closeModal">&times;</button>
+    </div>
+    <div class="share-options">
+      <div class="share-option" id="facebookShare">
+        <div class="share-icon facebook-bg">
+          <i class="fab fa-facebook-f"></i>
+        </div>
+        <span class="share-label">Facebook</span>
+      </div>
+      <div class="share-option" id="twitterShare">
+        <div class="share-icon twitter-bg">
+          <i class="fab fa-twitter"></i>
+        </div>
+        <span class="share-label">Twitter</span>
+      </div>
+      <div class="share-option" id="whatsappShare">
+        <div class="share-icon whatsapp-bg">
+          <i class="fab fa-whatsapp"></i>
+        </div>
+        <span class="share-label">WhatsApp</span>
+      </div>
+      <div class="share-option" id="copyLink">
+        <div class="share-icon copy-bg">
+          <i class="fas fa-link"></i>
+        </div>
+        <span class="share-label">Copy Link</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span>Link copied to clipboard!</span>
+</div>
+
+<script>
+  // DOM Elements
+  const shareBtn = document.getElementById('shareBtn');
+  const shareModal = document.getElementById('shareModal');
+  const closeModal = document.getElementById('closeModal');
+  const toast = document.getElementById('toast');
+  const darkToggle = document.getElementById("darkModeToggle");
+  const menuToggle = document.getElementById('menuToggle');
+  const menuDropdown = document.getElementById('menuDropdown');
+  const backToTop = document.getElementById('backToTop');
+  const likeBtn = document.getElementById('likeBtn');
+  const likeCount = document.getElementById('likeCount');
+  const commentBtn = document.getElementById('commentBtn');
+  const commentCount = document.getElementById('commentCount');
+  const viewCount = document.getElementById('viewCount');
+  const commentForm = document.getElementById('commentForm');
+  const commentsList = document.getElementById('commentsList');
+  const commentsSection = document.getElementById('commentsSection');
+  
+  // Share options
+  const facebookShare = document.getElementById('facebookShare');
+  const twitterShare = document.getElementById('twitterShare');
+  const whatsappShare = document.getElementById('whatsappShare');
+  const copyLink = document.getElementById('copyLink');
+  
+  // Current page URL and title
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent(document.title);
+  
+  // Initialize social data
+  let likes = parseInt(localStorage.getItem('poemLikes')) || 0;
+  let comments = JSON.parse(localStorage.getItem('poemComments')) || [];
+  let views = parseInt(localStorage.getItem('poemViews')) || 0;
+  let liked = localStorage.getItem('poemLiked') === 'true';
+  
+  // Automatic Counter Function
+  function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        clearInterval(timer);
+        current = target;
+        element.classList.remove('animating');
+      }
+      element.textContent = Math.floor(current);
+    }, 16);
+    
+    element.classList.add('animating');
+  }
+  
+  // Initialize counters with animation
+  function initializeCounters() {
+    // Simulate automatic view count increase
+    const randomViews = Math.floor(Math.random() * 100) + 10;
+    views = randomViews;
+    localStorage.setItem('poemViews', views);
+    
+    // Simulate automatic like count
+    const randomLikes = Math.floor(views * 0.3);
+    likes = randomLikes;
+    localStorage.setItem('poemLikes', likes);
+    
+    // Animate counters
+    setTimeout(() => animateCounter(viewCount, views), 500);
+    setTimeout(() => animateCounter(likeCount, likes), 1000);
+    setTimeout(() => animateCounter(commentCount, comments.length), 1500);
+  }
+  
+  // Update like count and state
+  if (liked) {
+    likeBtn.classList.add('liked');
+    likeBtn.innerHTML = '<i class="fas fa-heart"></i><span class="interaction-count">Likes: <span class="counter" id="likeCount">' + likes + '</span></span>';
+  }
+  
+  // Display existing comments
+  function displayComments() {
+    commentsList.innerHTML = '';
+    comments.forEach(comment => {
+      const commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+      commentElement.innerHTML = `
+        <div class="comment-header">
+          <span class="comment-author">${comment.author}</span>
+          <span class="comment-date">${comment.date}</span>
+        </div>
+        <div class="comment-text">${comment.text}</div>
+      `;
+      commentsList.appendChild(commentElement);
+    });
+  }
+  
+  // Initialize the page
+  function initializePage() {
+    initializeCounters();
+    displayComments();
+  }
+  
+  // Like button functionality
+  likeBtn.addEventListener('click', () => {
+    if (!liked) {
+      likes++;
+      liked = true;
+      likeBtn.classList.add('liked');
+      likeBtn.innerHTML = '<i class="fas fa-heart"></i><span class="interaction-count">Likes: <span class="counter" id="likeCount">' + likes + '</span></span>';
+      localStorage.setItem('poemLikes', likes);
+      localStorage.setItem('poemLiked', 'true');
+      
+      // Show toast
+      showToast('Thank you for liking !');
+    } else {
+      likes--;
+      liked = false;
+      likeBtn.classList.remove('liked');
+      likeBtn.innerHTML = '<i class="far fa-heart"></i><span class="interaction-count">Likes: <span class="counter" id="likeCount">' + likes + '</span></span>';
+      localStorage.setItem('poemLikes', likes);
+      localStorage.setItem('poemLiked', 'false');
+    }
+    
+    likeCount.textContent = likes;
+  });
+  
+  // Comment button functionality
+  commentBtn.addEventListener('click', () => {
+    commentsSection.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.comment-input').focus();
+  });
+  
+  // Comment form submission
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const commentInput = document.querySelector('.comment-input');
+    const commentText = commentInput.value.trim();
+    
+    if (commentText) {
+      const newComment = {
+        author: 'You',
+        date: new Date().toLocaleDateString(),
+        text: commentText
+      };
+      
+      comments.unshift(newComment);
+      localStorage.setItem('poemComments', JSON.stringify(comments));
+      
+      // Update comment count with animation
+      animateCounter(commentCount, comments.length);
+      
+      // Display new comment
+      displayComments();
+      
+      // Clear input
+      commentInput.value = '';
+      
+      // Show toast
+      showToast('Comment added successfully!');
+    }
+  });
+  
+  // Open modal
+  shareBtn.addEventListener('click', () => {
+    shareModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  });
+  
+  // Close modal
+  closeModal.addEventListener('click', () => {
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Close modal when clicking outside
+  shareModal.addEventListener('click', (e) => {
+    if (e.target === shareModal) {
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+  });
+  
+  // Facebook share
+  facebookShare.addEventListener('click', () => {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    window.open(url, '_blank', 'width=600,height=400');
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Twitter share
+  twitterShare.addEventListener('click', () => {
+    const url = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+    window.open(url, '_blank', 'width=600,height=400');
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // WhatsApp share
+  whatsappShare.addEventListener('click', () => {
+    const url = `https://api.whatsapp.com/send?text=${pageTitle} ${pageUrl}`;
+    window.open(url, '_blank');
+    shareModal.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  });
+  
+  // Copy link
+  copyLink.addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      // Show toast
+      showToast('Link copied to clipboard!');
+      
+      // Close modal
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }).catch(err => {
+      console.error('Could not copy text: ', err);
+      // Fallback for browsers that don't support clipboard API
+      const textArea = document.createElement('textarea');
+      textArea.value = window.location.href;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('Link copied to clipboard!');
+      } catch (err) {
+        console.error('Fallback copy failed: ', err);
+      }
+      document.body.removeChild(textArea);
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    });
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && shareModal.classList.contains('active')) {
+      shareModal.classList.remove('active');
+      document.body.style.overflow = ''; // Re-enable scrolling
+    }
+  });
+
+  // Enhanced Dark Mode Toggle
+  darkToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+    }
+  });
+
+  // Check for saved dark mode preference
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+  }
+
+  // Enhanced Mobile menu toggle
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menuToggle.classList.toggle('active');
+    menuDropdown.classList.toggle('active');
+    
+    // Add animation class for smooth transition
+    if (menuDropdown.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (menuDropdown.classList.contains('active') && 
+        !menuDropdown.contains(e.target) && 
+        !menuToggle.contains(e.target)) {
+      menuToggle.classList.remove('active');
+      menuDropdown.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  // Close menu when clicking on a link
+  document.querySelectorAll('.menu-dropdown .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      menuDropdown.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  // Back to Top Button
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 300 ? "flex" : "none";
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Toast notification function
+  function showToast(message) {
+    toast.querySelector('span').textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+
+  // Initialize the page when loaded
+  document.addEventListener('DOMContentLoaded', initializePage);
+</script>
+</body>
+</html>
